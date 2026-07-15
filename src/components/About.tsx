@@ -3,7 +3,6 @@ import {
   CURRENT_ROLE,
   hiringHighlights,
   openTo,
-  proofStats,
   RELOCATION,
 } from '../data/profile'
 import { SectionHeader, SectionShell } from './SectionShell'
@@ -22,18 +21,7 @@ export function About() {
         description="Junior developer first — customer experience from supporting live systems every day."
       />
 
-      <dl className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {proofStats.map((stat) => (
-          <div key={stat.label} className="stat-card px-4 py-4">
-            <dt className="text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">
-              {stat.label}
-            </dt>
-            <dd className="mt-1.5 text-lg font-bold text-white">{stat.value}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="surface-card mt-8 p-7 md:p-8">
+      <div className="surface-card mt-10 p-7 md:p-8">
         <p className="text-sm font-semibold uppercase tracking-wider text-indigo-300/90">
           Currently
         </p>

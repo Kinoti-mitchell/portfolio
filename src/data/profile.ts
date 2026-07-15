@@ -131,9 +131,3 @@ export const openTo = [
   { label: 'Relocation welcome', emoji: '🌍' },
 ]
 
-export const proofStats = [
-  { label: 'County systems live', value: '4' },
-  { label: 'Featured apps built', value: '2+' },
-  { label: 'Stack focus', value: 'React' },
-  { label: 'Based in', value: 'Nairobi' },
-]
