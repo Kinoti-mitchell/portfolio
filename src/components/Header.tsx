@@ -1,32 +1,31 @@
-import { Mail, Menu, Sparkles, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import { GITHUB_URL, LINKEDIN_URL } from '../data/profile'
 import { GitHubIcon } from './GitHubIcon'
 import { useState } from 'react'
 
 const links = [
-  { href: '#documents', label: 'CV' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#skills', label: 'Toolkit' },
   { href: '#projects', label: 'Projects' },
-  { href: '#request-demo', label: 'Connect' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#documents', label: 'CV' },
 ]
 
 export function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 glass border-b border-white/10">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 header-bar">
+      <div className="section-inner flex items-center justify-between px-6 py-3.5">
         <a
           href="#"
           className="flex items-center gap-2 text-lg font-bold tracking-tight text-white"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-cyan-500 text-sm font-black">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-teal-600 to-cyan-600 text-xs font-bold">
             MK
           </span>
-          Mitchell
+          Mitch
         </a>
 
-        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <a key={link.href} href={link.href} className="nav-link text-sm font-medium">
               {link.label}
@@ -34,22 +33,31 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <a
-            href="https://github.com/Kinoti-mitchell"
+            href={GITHUB_URL}
             target="_blank"
-            rel="noreferrer"
-            className="rounded-xl p-2.5 text-[var(--color-muted)] transition-all hover:bg-white/10 hover:text-white"
+            rel="noopener noreferrer"
+            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm"
             aria-label="GitHub"
           >
-            <GitHubIcon size={18} />
+            <GitHubIcon size={16} />
           </a>
+          {LINKEDIN_URL ? (
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost rounded-xl px-3 py-2 text-sm font-medium"
+            >
+              LinkedIn
+            </a>
+          ) : null}
           <a
             href="#request-demo"
-            className="btn-primary inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm"
+            className="btn-primary rounded-xl px-5 py-2.5 text-sm"
           >
-            <Sparkles size={15} />
-            Connect
+            Contact
           </a>
         </div>
 
@@ -77,22 +85,39 @@ export function Header() {
                 </a>
               </li>
             ))}
-            <li className="flex gap-4 pt-2">
+            <li>
               <a
-                href="https://github.com/Kinoti-mitchell"
+                href="#request-demo"
+                className="block font-medium text-teal-300"
+                onClick={() => setOpen(false)}
+              >
+                Contact
+              </a>
+            </li>
+            <li>
+              <a
+                href={GITHUB_URL}
                 target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-sm text-[var(--color-muted)]"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 font-medium text-[var(--color-muted)]"
+                onClick={() => setOpen(false)}
               >
                 <GitHubIcon size={16} /> GitHub
               </a>
-              <a
-                href="mailto:kinotimitchell@gmail.com"
-                className="flex items-center gap-2 text-sm text-violet-300"
-              >
-                <Mail size={16} /> Email
-              </a>
             </li>
+            {LINKEDIN_URL ? (
+              <li>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-medium text-[var(--color-muted)]"
+                  onClick={() => setOpen(false)}
+                >
+                  LinkedIn
+                </a>
+              </li>
+            ) : null}
           </ul>
         </nav>
       )}

@@ -15,51 +15,49 @@ import {
 } from '../data/documents'
 import { notifyActivity } from '../lib/activityNotify'
 import { useDemoRequest } from '../context/DemoContext'
-import { SectionBadge } from './SectionBadge'
+import { SectionHeader, SectionShell } from './SectionShell'
 
 export function Documents() {
   return (
-    <section id="documents" className="border-y border-white/10 bg-white/[0.02] px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionBadge>CV &amp; certificates</SectionBadge>
-        <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-          Documents <span className="gradient-text">hub</span>
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-          Download or print my CV below. Certificates are protected — request
-          access at the bottom of the page.
-        </p>
-
-        <div className="mt-6 flex items-start gap-3 rounded-xl border border-emerald-500/25 bg-emerald-500/10 p-4">
-          <Shield className="mt-0.5 shrink-0 text-emerald-400" size={20} />
-          <p className="text-sm text-[var(--color-muted)]">
-            <strong className="text-emerald-300">Privacy:</strong> Certificate
-            scans are never posted publicly. Full copies are emailed only after
-            you review a connect-form request.
-          </p>
-        </div>
-
-        {cvDocument && (
-          <div className="mt-10">
-            <CvCard doc={cvDocument} />
-          </div>
-        )}
-
-        {privateDocuments.length > 0 && (
+    <SectionShell id="documents" bordered alt>
+      <SectionHeader
+        badge="CV"
+        title={
           <>
-            <h3 className="mt-14 flex items-center gap-2 text-xl font-bold text-white">
-              <Lock size={20} className="text-amber-400" />
-              Protected credentials
-            </h3>
-            <div className="mt-6 grid gap-5 sm:grid-cols-2">
-              {privateDocuments.map((doc) => (
-                <PrivateDocumentCard key={doc.id} doc={doc} />
-              ))}
-            </div>
+            Documents & <span className="gradient-text">credentials</span>
           </>
-        )}
+        }
+        description="Open the CV in your browser, then Print → Save as PDF for ATS uploads."
+      />
+
+      <div className="alert-info mt-6 flex items-start gap-3 p-4 text-left">
+        <Shield className="mt-0.5 shrink-0 text-emerald-400" size={20} />
+        <p className="text-sm text-[var(--color-muted)]">
+          Certificate scans are not posted here. Request a copy and I will send
+          it by email.
+        </p>
       </div>
-    </section>
+
+      {cvDocument && (
+        <div className="mt-10">
+          <CvCard doc={cvDocument} />
+        </div>
+      )}
+
+      {privateDocuments.length > 0 && (
+        <>
+          <h3 className="mt-14 flex items-center gap-2 text-xl font-bold text-white">
+            <Lock size={20} className="text-amber-400" />
+            Protected credentials
+          </h3>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {privateDocuments.map((doc) => (
+              <PrivateDocumentCard key={doc.id} doc={doc} />
+            ))}
+          </div>
+        </>
+      )}
+    </SectionShell>
   )
 }
 
@@ -77,17 +75,14 @@ function CvCard({ doc }: { doc: DocumentItem }) {
   }
 
   return (
-    <article className="card-hover overflow-hidden rounded-2xl glass">
-      <div className={`h-1.5 w-full bg-gradient-to-r ${doc.accent}`} />
+    <article className="card-hover surface-card overflow-hidden">
+      <div className={`project-accent bg-gradient-to-r ${doc.accent}`} />
       <div className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between">
         <div className="flex items-start gap-5">
-          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 text-3xl">
+          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-cyan-500/20 text-3xl">
             {doc.emoji}
           </span>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-violet-300">
-              Public · for recruiters
-            </p>
             <h3 className="mt-1 text-2xl font-bold text-white">{doc.title}</h3>
             <p className="mt-2 max-w-lg text-[var(--color-muted)]">
               {doc.description}
@@ -114,7 +109,7 @@ function CvCard({ doc }: { doc: DocumentItem }) {
             className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium"
           >
             <Printer size={16} />
-            Print / save PDF
+            Save as PDF
           </button>
         </div>
       </div>
@@ -131,8 +126,8 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
   }
 
   return (
-    <article className="relative overflow-hidden rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
-      <div className={`h-1 w-full bg-gradient-to-r ${doc.accent}`} />
+    <article className="surface-card relative overflow-hidden border-amber-500/20">
+      <div className={`project-accent bg-gradient-to-r ${doc.accent}`} />
       <div className="p-6">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-start gap-3">
@@ -180,9 +175,6 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
             <FolderOpen size={16} />
             Request certificate copy
           </button>
-          <p className="mt-2 text-center text-xs text-[var(--color-muted)]">
-            Scrolls to connect form — I email the document after review.
-          </p>
         </div>
       </div>
     </article>

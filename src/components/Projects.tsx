@@ -1,8 +1,8 @@
-import { Play, Star } from 'lucide-react'
-import { GitHubIcon } from './GitHubIcon'
-import { SectionBadge } from './SectionBadge'
+import { Play } from 'lucide-react'
+import { SectionHeader, SectionShell } from './SectionShell'
 import { useDemoRequest } from '../context/DemoContext'
 import { projects } from '../data/projects'
+import { GitHubIcon } from './GitHubIcon'
 
 export function Projects() {
   const { requestDemo } = useDemoRequest()
@@ -10,42 +10,42 @@ export function Projects() {
   const others = projects.filter((p) => !p.featured)
 
   return (
-    <section id="projects" className="px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionBadge>Portfolio</SectionBadge>
-        <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-          Featured <span className="gradient-text">projects</span>
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-          Real apps I've built — request a demo to see any project live.
-        </p>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              onRequestDemo={() => requestDemo(project.title)}
-            />
-          ))}
-        </div>
-
-        {others.length > 0 && (
+    <SectionShell id="projects">
+      <SectionHeader
+        badge="Projects"
+        title={
           <>
-            <h3 className="mt-16 text-2xl font-bold text-white">More work</h3>
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {others.map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  project={project}
-                  onRequestDemo={() => requestDemo(project.title)}
-                />
-              ))}
-            </div>
+            Selected <span className="gradient-text">work</span>
           </>
-        )}
+        }
+        description="Code on GitHub — walkthrough demos available on request."
+      />
+
+      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {featured.map((project) => (
+          <ProjectCard
+            key={project.title}
+            project={project}
+            onRequestDemo={() => requestDemo(project.title)}
+          />
+        ))}
       </div>
-    </section>
+
+      {others.length > 0 && (
+        <>
+          <h3 className="mt-16 text-2xl font-bold text-white">More work</h3>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {others.map((project) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                onRequestDemo={() => requestDemo(project.title)}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </SectionShell>
   )
 }
 
@@ -57,30 +57,22 @@ function ProjectCard({
   onRequestDemo: () => void
 }) {
   return (
-    <article className="card-hover group flex flex-col overflow-hidden rounded-2xl glass">
-      <div className={`h-1.5 w-full bg-gradient-to-r ${project.accent}`} />
+    <article className="card-hover surface-card group flex flex-col overflow-hidden">
+      <div className={`project-accent bg-gradient-to-r ${project.accent}`} />
       <div className="flex flex-1 flex-col p-6">
-        <div className="mb-3 flex items-start justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-xl">
-              {project.emoji}
-            </span>
-            <div>
-              <h3 className="text-lg font-bold text-white">{project.title}</h3>
-              {project.subtitle && (
-                <p className="text-xs text-cyan-300/80">{project.subtitle}</p>
-              )}
-            </div>
+        <div className="mb-3 flex items-start gap-3">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-xl">
+            {project.emoji}
+          </span>
+          <div>
+            <h3 className="text-lg font-bold text-white">{project.title}</h3>
+            {project.subtitle && (
+              <p className="text-xs text-cyan-300/80">{project.subtitle}</p>
+            )}
           </div>
-          {project.featured && (
-            <Star
-              size={16}
-              className="shrink-0 fill-amber-400 text-amber-400"
-            />
-          )}
         </div>
 
-        <p className="flex-1 text-sm leading-relaxed text-[var(--color-muted)]">
+        <p className="text-sm leading-relaxed text-[var(--color-muted)]">
           {project.description}
         </p>
 
@@ -88,22 +80,22 @@ function ProjectCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className={`rounded-lg border bg-gradient-to-r px-2.5 py-1 font-mono text-xs ${project.accent} border-white/10 bg-white/5 text-white/80`}
+              className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-xs text-white/80"
             >
               {tag}
             </span>
           ))}
         </div>
 
-        <div className="mt-5 flex flex-wrap gap-3 border-t border-white/10 pt-4">
+        <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-4">
           <a
             href={project.github}
             target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-muted)] transition-colors hover:text-white"
+            rel="noopener noreferrer"
+            className="btn-ghost inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-semibold"
           >
             <GitHubIcon size={14} />
-            Source
+            Code
           </a>
           <button
             type="button"

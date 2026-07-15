@@ -21,13 +21,13 @@ export const documents: DocumentItem[] = [
     id: 'cv',
     title: 'Curriculum Vitae',
     description:
-      'Full CV — experience at Craft Silicon, education, competencies, systems developed, and referees.',
+      'Developer-focused CV — Craft Silicon, projects, education, and referees. Open in browser or print to PDF.',
     file: 'documents/mitchell-kinoti-cv.html',
     type: 'cv',
     access: 'public',
     date: 'July 2026',
     emoji: '📄',
-    accent: 'from-violet-500 to-indigo-600',
+    accent: 'from-teal-500 to-cyan-600',
   },
   {
     id: 'diploma-ict',
@@ -40,7 +40,7 @@ export const documents: DocumentItem[] = [
     date: 'July 2022',
     result: 'Credit',
     emoji: '🎓',
-    accent: 'from-cyan-500 to-teal-600',
+    accent: 'from-sky-500 to-teal-600',
   },
 ]
 

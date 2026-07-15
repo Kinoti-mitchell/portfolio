@@ -1,88 +1,74 @@
-import { profileSummary, CURRENT_COMPANY, CURRENT_ROLE, EMPLOYER_LOCATION, LOCATION, openTo } from '../data/profile'
-import { SectionBadge } from './SectionBadge'
-
-const stats = [
-  { label: 'Experience', value: '7+ yrs', color: 'from-violet-400 to-purple-500' },
-  { label: 'Employer HQ', value: 'Nairobi', color: 'from-cyan-400 to-blue-500' },
-  { label: 'Education', value: 'BSc IT', color: 'from-pink-400 to-rose-500' },
-  { label: 'Based in', value: 'Meru 🇰🇪', color: 'from-amber-400 to-orange-500' },
-]
+import {
+  CURRENT_COMPANY,
+  CURRENT_ROLE,
+  hiringHighlights,
+  openTo,
+  proofStats,
+  RELOCATION,
+} from '../data/profile'
+import { SectionHeader, SectionShell } from './SectionShell'
 
 export function About() {
   return (
-    <section id="about" className="px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionBadge>About me</SectionBadge>
-        <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-          ICT professional who{' '}
-          <span className="gradient-text">delivers for users</span>
-        </h2>
+    <SectionShell id="about" alt>
+      <SectionHeader
+        badge="About"
+        title={
+          <>
+            Building software with{' '}
+            <span className="gradient-text">client impact</span>
+          </>
+        }
+        description="Junior developer first — customer experience from supporting live systems every day."
+      />
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          <div className="glass-strong card-hover rounded-2xl p-8">
-            <p className="text-lg leading-relaxed text-[var(--color-muted)]">
-              {profileSummary}
-            </p>
+      <dl className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {proofStats.map((stat) => (
+          <div key={stat.label} className="stat-card px-4 py-4">
+            <dt className="text-xs font-medium uppercase tracking-wide text-[var(--color-muted)]">
+              {stat.label}
+            </dt>
+            <dd className="mt-1.5 text-lg font-bold text-white">{stat.value}</dd>
           </div>
-          <div className="glass-strong card-hover rounded-2xl p-8">
-            <p className="text-sm font-semibold uppercase tracking-wider text-violet-300">
-              Currently
-            </p>
-            <p className="mt-2 text-xl font-bold text-white">{CURRENT_ROLE}</p>
-            <p className="text-cyan-300">{CURRENT_COMPANY}</p>
-            <p className="text-sm text-violet-300/90">Head office · {EMPLOYER_LOCATION}</p>
-            <p className="mt-4 text-[var(--color-muted)]">
-              Deploying county revenue systems, supporting clients across Kenya,
-              and building internal tools like{' '}
-              <strong className="text-violet-300">Craft Trail</strong> while
-              completing my BSc in IT part-time at Meru University.
-            </p>
-            <p className="mt-3 text-sm text-[var(--color-muted)]">
-              📍 Personal base: {LOCATION}
-            </p>
-          </div>
-        </div>
+        ))}
+      </dl>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="glass card-hover rounded-2xl p-6 text-center"
-            >
-              <dt className="text-sm font-medium text-[var(--color-muted)]">
-                {stat.label}
-              </dt>
-              <dd
-                className={`mt-2 bg-gradient-to-r ${stat.color} bg-clip-text text-xl font-extrabold text-transparent md:text-2xl`}
-              >
-                {stat.value}
-              </dd>
-            </div>
+      <div className="surface-card mt-8 p-7 md:p-8">
+        <p className="text-sm font-semibold uppercase tracking-wider text-teal-300/90">
+          Currently
+        </p>
+        <p className="mt-2 text-xl font-bold text-white">{CURRENT_ROLE}</p>
+        <p className="text-cyan-300">{CURRENT_COMPANY}</p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
+          {RELOCATION}
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {openTo.map((item) => (
+            <span key={item.label} className="tech-pill">
+              {item.emoji} {item.label}
+            </span>
           ))}
         </div>
-
-        <div className="mt-10 glass-strong rounded-2xl p-8">
-          <SectionBadge>Currently open to</SectionBadge>
-          <h3 className="mt-3 text-xl font-bold text-white md:text-2xl">
-            Open to new opportunities
-          </h3>
-          <p className="mt-2 max-w-2xl text-[var(--color-muted)]">
-            ICT roles, software support, customer experience, and demo
-            requests — based in Meru, working with Craft Silicon Payments in
-            Nairobi.
-          </p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {openTo.map((item) => (
-              <span
-                key={item.label}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/90"
-              >
-                {item.emoji} {item.label}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
-    </section>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {hiringHighlights.map((item) => (
+          <article
+            key={item.title}
+            className={`highlight-card border p-5 ${item.accent}`}
+          >
+            <div className="flex items-start gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-lg">
+                {item.emoji}
+              </span>
+              <div className="min-w-0 text-left">
+                <h3 className="font-bold text-white">{item.title}</h3>
+                <p className="prose-block mt-1.5 text-sm">{item.description}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </SectionShell>
   )
 }

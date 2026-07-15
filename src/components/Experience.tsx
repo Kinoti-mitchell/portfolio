@@ -1,49 +1,47 @@
 import { experience } from '../data/profile'
-import { SectionBadge } from './SectionBadge'
+import { SectionHeader, SectionShell } from './SectionShell'
 
 export function Experience() {
   return (
-    <section id="experience" className="border-y border-white/10 bg-white/[0.02] px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionBadge>Experience</SectionBadge>
-        <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-          What I've <span className="gradient-text">built & shipped</span>
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-          Full-stack apps, data systems, and AI projects — source code and live
-          walkthroughs available on request.
-        </p>
+    <SectionShell id="experience" bordered alt>
+      <SectionHeader
+        badge="Experience"
+        title={
+          <>
+            Recent <span className="gradient-text">roles</span>
+          </>
+        }
+        description="Focus on Craft Silicon and the path into software — earlier roles are on the CV."
+      />
 
-        <div className="relative mt-12 space-y-6 pl-8 before:absolute before:bottom-2 before:left-[7px] before:top-2 before:w-0.5 before:bg-gradient-to-b before:from-violet-500 before:via-cyan-500 before:to-fuchsia-500">
-          {experience.map((item) => (
-            <article key={item.role} className="relative">
-              <div
-                className={`absolute -left-8 top-1.5 h-3.5 w-3.5 rounded-full ring-4 ring-[var(--color-surface)] ${item.accent}`}
-              />
-              <div className="glass-strong card-hover rounded-2xl p-6">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-lg font-bold text-white">{item.role}</h3>
-                  <span className="font-mono text-xs text-violet-300">
-                    {item.period}
-                  </span>
-                </div>
-                <p className="mt-1 text-sm text-cyan-300/80">{item.org}</p>
-                <ul className="mt-4 space-y-2">
-                  {item.highlights.map((h) => (
-                    <li
-                      key={h}
-                      className="flex gap-2 text-sm leading-relaxed text-[var(--color-muted)]"
-                    >
-                      <span className="text-violet-400">▸</span>
-                      {h}
-                    </li>
-                  ))}
-                </ul>
+      <div className="relative mt-10 space-y-5 border-l border-white/10 pl-6 md:pl-8">
+        {experience.map((item) => (
+          <article key={item.role + item.period} className="relative">
+            <div
+              className={`timeline-dot absolute -left-[calc(1.5rem+5px)] top-2 h-2.5 w-2.5 rounded-full md:-left-[calc(2rem+5px)] ${item.accent}`}
+            />
+            <div className="surface-card p-5 md:p-6">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="text-lg font-bold text-white">{item.role}</h3>
+                <span className="font-mono text-xs text-teal-300/90">
+                  {item.period}
+                </span>
               </div>
-            </article>
-          ))}
-        </div>
+              <p className="mt-1 text-sm text-cyan-300/85">{item.org}</p>
+              <ul className="mt-3 space-y-2 text-left">
+                {item.highlights.map((h) => (
+                  <li
+                    key={h}
+                    className="text-sm leading-relaxed text-[var(--color-muted)]"
+                  >
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </SectionShell>
   )
 }
