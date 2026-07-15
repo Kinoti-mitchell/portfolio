@@ -1,4 +1,5 @@
-import { Mail, Send } from 'lucide-react'
+import { Mail, Phone, Send } from 'lucide-react'
+import { EMAIL, PHONE, LOCATION } from '../data/profile'
 import { GitHubIcon } from './GitHubIcon'
 import { SectionBadge } from './SectionBadge'
 
@@ -8,31 +9,34 @@ export function Contact() {
       <div className="mx-auto max-w-6xl">
         <div className="relative overflow-hidden rounded-3xl border border-white/10 p-10 text-center md:p-16">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet-600/20 via-fuchsia-600/10 to-cyan-600/20" />
-          <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-violet-500/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-cyan-500/20 blur-3xl" />
-
           <div className="relative">
             <SectionBadge>Contact</SectionBadge>
             <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-              Let's build something{' '}
-              <span className="gradient-text">awesome</span>
+              Let's <span className="gradient-text">connect</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--color-muted)]">
-              Open to internships, freelance work, and collaborations — or use
-              the{' '}
+              Open to ICT roles, software support, and customer experience
+              positions — or use the{' '}
               <a href="#request-demo" className="text-violet-300 underline">
-                demo request form
+                connect form
               </a>{' '}
-              above to see my projects live.
+              to request a demo or discuss an opportunity.
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:kinotimitchell@gmail.com"
+                href={`mailto:${EMAIL}`}
                 className="btn-primary inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm"
               >
                 <Mail size={18} />
-                kinotimitchell@gmail.com
+                {EMAIL}
+              </a>
+              <a
+                href={`tel:${PHONE.replace(/\s/g, '')}`}
+                className="btn-ghost inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm font-medium"
+              >
+                <Phone size={18} />
+                {PHONE}
               </a>
               <a
                 href="https://github.com/Kinoti-mitchell"
@@ -41,11 +45,12 @@ export function Contact() {
                 className="btn-ghost inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm font-medium"
               >
                 <GitHubIcon size={18} />
-                @Kinoti-mitchell
+                GitHub
               </a>
             </div>
 
-            <p className="mt-8 inline-flex items-center gap-2 text-sm text-violet-300/80">
+            <p className="mt-6 text-sm text-[var(--color-muted)]">{LOCATION}</p>
+            <p className="mt-4 inline-flex items-center gap-2 text-sm text-violet-300/80">
               <Send size={14} />
               Usually responds within 24 hours
             </p>

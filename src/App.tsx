@@ -3,6 +3,7 @@ import { Background } from './components/Background'
 import { Contact } from './components/Contact'
 import { DemoRequestForm } from './components/DemoRequestForm'
 import { Documents } from './components/Documents'
+import { Education } from './components/Education'
 import { Experience } from './components/Experience'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -24,6 +25,7 @@ function App() {
         <About />
         <WhyHireMe />
         <Experience />
+        <Education />
         <Documents />
         <Projects />
         <DemoRequestForm />

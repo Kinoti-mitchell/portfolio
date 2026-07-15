@@ -13,8 +13,8 @@ export function OpenTo() {
                 Let's connect — I'm actively looking
               </h2>
               <p className="mt-2 max-w-lg text-[var(--color-muted)]">
-                Internships, junior roles, freelance gigs, and demo requests
-                welcome. Based in Kenya, open to remote work worldwide.
+                ICT roles, software support, customer experience positions, and
+                demo requests welcome. Based in Meru, Kenya.
               </p>
             </div>
             <div className="flex flex-wrap gap-2 md:max-w-md md:justify-end">

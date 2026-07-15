@@ -62,10 +62,15 @@ function ProjectCard({
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3 flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-xl">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-xl">
               {project.emoji}
             </span>
-            <h3 className="text-lg font-bold text-white">{project.title}</h3>
+            <div>
+              <h3 className="text-lg font-bold text-white">{project.title}</h3>
+              {project.subtitle && (
+                <p className="text-xs text-cyan-300/80">{project.subtitle}</p>
+              )}
+            </div>
           </div>
           {project.featured && (
             <Star

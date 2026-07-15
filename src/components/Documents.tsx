@@ -41,7 +41,9 @@ export function Documents() {
         )}
 
         <p className="mt-10 text-center text-sm text-[var(--color-muted)]">
-          All documents open in a new tab. PDF format recommended.
+          CV opens in a new tab — use Print / PDF to save. Add certificate PDFs
+          to <code className="text-violet-300">public/documents/certificates/</code>{' '}
+          when ready.
         </p>
       </div>
     </section>
@@ -116,7 +118,6 @@ function DocumentCard({ doc }: { doc: DocumentItem }) {
 
 function DocumentActions({
   url,
-  title,
   primary = false,
 }: {
   url: string
@@ -140,7 +141,8 @@ function DocumentActions({
       </a>
       <a
         href={url}
-        download={title.replace(/\s+/g, '-').toLowerCase() + '.pdf'}
+        target="_blank"
+        rel="noreferrer"
         className={
           primary
             ? 'btn-ghost inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium'
@@ -148,7 +150,7 @@ function DocumentActions({
         }
       >
         <Download size={primary ? 16 : 14} />
-        Download
+        {url.endsWith('.html') ? 'Print / PDF' : 'Download'}
       </a>
     </div>
   )
