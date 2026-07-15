@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private certificate scans — never publish
+private-documents/*
+!private-documents/README.md

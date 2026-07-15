@@ -31,7 +31,7 @@ const emptyDraft: EmailDraft = {
 }
 
 export function DemoRequestForm() {
-  const { selectedProject } = useDemoRequest()
+  const { selectedProject, inquiryKind } = useDemoRequest()
   const [draft, setDraft] = useState<EmailDraft>(emptyDraft)
   const [tab, setTab] = useState<Tab>('email')
   const [status, setStatus] = useState<FormState>('idle')
@@ -39,10 +39,21 @@ export function DemoRequestForm() {
 
   useEffect(() => {
     if (selectedProject) {
-      setDraft((d) => ({ ...d, project: selectedProject }))
+      setDraft((d) => ({
+        ...d,
+        project: selectedProject,
+        opportunity:
+          inquiryKind === 'certificate'
+            ? 'Certificate / credential request'
+            : d.opportunity,
+        message:
+          inquiryKind === 'certificate' && !d.message
+            ? 'I am requesting a verified copy of this certificate for recruitment or verification purposes. My organisation/role: [please fill in].'
+            : d.message,
+      }))
       setTab('email')
     }
-  }, [selectedProject])
+  }, [selectedProject, inquiryKind])
 
   const [copied, setCopied] = useState(false)
 

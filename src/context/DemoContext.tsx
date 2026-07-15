@@ -1,29 +1,47 @@
 import { createContext, useContext, useState, type ReactNode } from 'react'
 
-type DemoContextValue = {
+type InquiryKind = 'demo' | 'certificate' | 'general'
+
+type InquiryContextValue = {
   selectedProject: string
+  inquiryKind: InquiryKind
   requestDemo: (project: string) => void
+  requestCertificate: (label: string) => void
 }
 
-const DemoContext = createContext<DemoContextValue | null>(null)
+const InquiryContext = createContext<InquiryContextValue | null>(null)
+
+function scrollToConnect() {
+  document.getElementById('request-demo')?.scrollIntoView({ behavior: 'smooth' })
+}
 
 export function DemoProvider({ children }: { children: ReactNode }) {
   const [selectedProject, setSelectedProject] = useState('')
+  const [inquiryKind, setInquiryKind] = useState<InquiryKind>('general')
 
   const requestDemo = (project: string) => {
     setSelectedProject(project)
-    document.getElementById('request-demo')?.scrollIntoView({ behavior: 'smooth' })
+    setInquiryKind('demo')
+    scrollToConnect()
+  }
+
+  const requestCertificate = (label: string) => {
+    setSelectedProject(label)
+    setInquiryKind('certificate')
+    scrollToConnect()
   }
 
   return (
-    <DemoContext.Provider value={{ selectedProject, requestDemo }}>
+    <InquiryContext.Provider
+      value={{ selectedProject, inquiryKind, requestDemo, requestCertificate }}
+    >
       {children}
-    </DemoContext.Provider>
+    </InquiryContext.Provider>
   )
 }
 
 export function useDemoRequest() {
-  const ctx = useContext(DemoContext)
+  const ctx = useContext(InquiryContext)
   if (!ctx) throw new Error('useDemoRequest must be used within DemoProvider')
   return ctx
 }
