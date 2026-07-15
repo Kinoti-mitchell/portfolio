@@ -4,7 +4,6 @@ export type Project = {
   description: string
   tags: string[]
   github: string
-  featured?: boolean
   accent: string
   emoji: string
 }
@@ -19,7 +18,6 @@ export const projects: Project[] = [
       'Internal intern & attaché tracking system built at Craft Silicon. Daily logs, progress tracking, and admin communication — shipped as a React PWA with Supabase.',
     tags: ['React', 'TypeScript', 'Supabase', 'PWA'],
     github: 'https://github.com/Kinoti-mitchell/attachment',
-    featured: true,
   },
   {
     title: 'Rio Fish Farm',
@@ -30,7 +28,6 @@ export const projects: Project[] = [
       'Fish-farm operations and record keeping that grew into a supply-chain platform with outlet distribution, roles, and audit trails.',
     tags: ['React', 'Node.js', 'Express', 'Supabase', 'Leaflet'],
     github: 'https://github.com/Kinoti-mitchell/SAMAKI',
-    featured: true,
   },
   {
     title: 'E-commerce Big Data Analytics',
@@ -40,7 +37,6 @@ export const projects: Project[] = [
       'Academic data-lake project with ML pipelines for fraud detection, sentiment analysis, churn prediction, and recommendations — Streamlit dashboard included.',
     tags: ['Python', 'Streamlit', 'PySpark', 'Machine Learning'],
     github: 'https://github.com/Kinoti-mitchell/ecommerce',
-    featured: true,
   },
   {
     title: 'Medical Problem Identification',
@@ -50,15 +46,6 @@ export const projects: Project[] = [
       'Knowledge-based system for medical exploration with forward-chaining inference, confidence scoring, and an explanation facility.',
     tags: ['Python', 'Streamlit', 'KBS'],
     github: 'https://github.com/Kinoti-mitchell/medicalproblemidentification',
-  },
-  {
-    title: 'Animal Identification KBS',
-    emoji: '🦁',
-    accent: 'from-amber-500 to-orange-600',
-    description:
-      'Rule-based expert system identifying animals by traits — guided identification, confidence scoring, and knowledge management UI.',
-    tags: ['Python', 'Streamlit', 'Expert Systems'],
-    github: 'https://github.com/Kinoti-mitchell/animal-identification-kb',
   },
 ]
 

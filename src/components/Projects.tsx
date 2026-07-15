@@ -2,12 +2,9 @@ import { Play } from 'lucide-react'
 import { SectionHeader, SectionShell } from './SectionShell'
 import { useDemoRequest } from '../context/DemoContext'
 import { projects } from '../data/projects'
-import { GitHubIcon } from './GitHubIcon'
 
 export function Projects() {
   const { requestDemo } = useDemoRequest()
-  const featured = projects.filter((p) => p.featured)
-  const others = projects.filter((p) => !p.featured)
 
   return (
     <SectionShell id="projects">
@@ -15,14 +12,14 @@ export function Projects() {
         badge="Projects"
         title={
           <>
-            Selected <span className="gradient-text">work</span>
+            My <span className="gradient-text">work</span>
           </>
         }
-        description="Code on GitHub — walkthrough demos available on request."
+        description="Walkthrough demos available on request."
       />
 
       <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {featured.map((project) => (
+        {projects.map((project) => (
           <ProjectCard
             key={project.title}
             project={project}
@@ -30,21 +27,6 @@ export function Projects() {
           />
         ))}
       </div>
-
-      {others.length > 0 && (
-        <>
-          <h3 className="mt-16 text-2xl font-bold text-white">More work</h3>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            {others.map((project) => (
-              <ProjectCard
-                key={project.title}
-                project={project}
-                onRequestDemo={() => requestDemo(project.title)}
-              />
-            ))}
-          </div>
-        </>
-      )}
     </SectionShell>
   )
 }
@@ -87,16 +69,7 @@ function ProjectCard({
           ))}
         </div>
 
-        <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-4">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-ghost inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-semibold"
-          >
-            <GitHubIcon size={14} />
-            Code
-          </a>
+        <div className="mt-5 border-t border-white/10 pt-4">
           <button
             type="button"
             onClick={onRequestDemo}

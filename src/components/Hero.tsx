@@ -10,7 +10,6 @@ import {
   TITLE,
   TITLE_SUPPORT,
 } from '../data/profile'
-import { techStack } from '../data/projects'
 import { SectionBadge } from './SectionBadge'
 
 export function Hero() {
@@ -70,17 +69,6 @@ export function Hero() {
                 Request CV
                 <ArrowDown size={15} />
               </a>
-            </div>
-
-            <div className="animate-fade-up delay-3 mt-7 border-t border-white/6 pt-7">
-              <p className="section-label">Core languages</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {techStack.languages.map((lang) => (
-                  <span key={lang} className="tech-pill-lang">
-                    {lang}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         </div>

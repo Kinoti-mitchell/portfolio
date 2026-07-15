@@ -4,8 +4,8 @@ import { GitHubIcon } from './GitHubIcon'
 import { useState } from 'react'
 
 const links = [
-  { href: '#projects', label: 'Projects' },
   { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
   { href: '#documents', label: 'CV' },
 ]
 
