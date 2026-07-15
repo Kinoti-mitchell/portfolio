@@ -14,7 +14,7 @@ export function OpenTo() {
               </h2>
               <p className="mt-2 max-w-lg text-[var(--color-muted)]">
                 ICT roles, software support, customer experience positions, and
-                demo requests welcome. Based in Meru, Kenya.
+                demo requests welcome. Based in Meru; current employer Craft Silicon Payments is in Nairobi.
               </p>
             </div>
             <div className="flex flex-wrap gap-2 md:max-w-md md:justify-end">

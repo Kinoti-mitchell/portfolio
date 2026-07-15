@@ -78,8 +78,8 @@ export const skills = [
     accent: 'border-violet-500/40 bg-violet-500/10 text-violet-300',
     tagAccent: 'bg-violet-500/15 text-violet-200 border-violet-500/25',
     items: [
+      'Craft Silicon Payments',
       'County revenue systems',
-      'JamboPay & CIROM',
       'Payment systems',
       'Junior software development',
       'React & Supabase',

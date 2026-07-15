@@ -1,9 +1,9 @@
-import { profileSummary, CURRENT_COMPANY, CURRENT_ROLE, LOCATION } from '../data/profile'
+import { profileSummary, CURRENT_COMPANY, CURRENT_ROLE, EMPLOYER_LOCATION, LOCATION } from '../data/profile'
 import { SectionBadge } from './SectionBadge'
 
 const stats = [
   { label: 'Experience', value: '7+ yrs', color: 'from-violet-400 to-purple-500' },
-  { label: 'Current role', value: 'Craft Silicon', color: 'from-cyan-400 to-blue-500' },
+  { label: 'Employer HQ', value: 'Nairobi', color: 'from-cyan-400 to-blue-500' },
   { label: 'Education', value: 'BSc IT', color: 'from-pink-400 to-rose-500' },
   { label: 'Based in', value: 'Meru 🇰🇪', color: 'from-amber-400 to-orange-500' },
 ]
@@ -30,6 +30,7 @@ export function About() {
             </p>
             <p className="mt-2 text-xl font-bold text-white">{CURRENT_ROLE}</p>
             <p className="text-cyan-300">{CURRENT_COMPANY}</p>
+            <p className="text-sm text-violet-300/90">Head office · {EMPLOYER_LOCATION}</p>
             <p className="mt-4 text-[var(--color-muted)]">
               Deploying county revenue systems, supporting clients across Kenya,
               and building internal tools like{' '}
@@ -37,7 +38,7 @@ export function About() {
               completing my BSc in IT part-time at Meru University.
             </p>
             <p className="mt-3 text-sm text-[var(--color-muted)]">
-              📍 {LOCATION}
+              📍 Personal base: {LOCATION}
             </p>
           </div>
         </div>

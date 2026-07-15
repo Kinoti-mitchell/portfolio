@@ -1,6 +1,7 @@
 import {
   CURRENT_COMPANY,
   CURRENT_ROLE,
+  EMPLOYER_LOCATION,
   FULL_NAME,
   LOCATION,
   profileSummary,
@@ -21,7 +22,7 @@ export function Hero() {
         <div className="animate-fade-up">
           <SectionBadge>
             <Sparkles size={12} className="mr-1.5 inline" />
-            {CURRENT_ROLE} · {CURRENT_COMPANY}
+            {CURRENT_ROLE} · {CURRENT_COMPANY} · {EMPLOYER_LOCATION}
           </SectionBadge>
         </div>
 
@@ -70,11 +71,10 @@ export function Hero() {
 
         <div className="animate-fade-up delay-3 mt-16 flex flex-wrap gap-3">
           {[
-            'JamboPay',
-            'CIROM',
+            'Craft Silicon Payments',
+            'County Revenue',
             'React',
             'Supabase',
-            'County Revenue',
             'Python',
             LOCATION,
           ].map((tech) => (

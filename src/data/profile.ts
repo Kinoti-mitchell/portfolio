@@ -4,9 +4,11 @@ export const EMAIL = 'kinotimitchell@gmail.com'
 export const PHONE = '+254 743 814 752'
 export const LOCATION = 'Meru, Kenya'
 export const ADDRESS = 'P.O. Box 1208-60200, Meru, Kenya'
+export const EMPLOYER_LOCATION = 'Nairobi, Kenya'
 export const TITLE = 'ICT · Customer Experience · Software Support'
 export const CURRENT_ROLE = 'Customer Experience & Junior Software Developer'
-export const CURRENT_COMPANY = 'Craft Silicon Payments'
+export const CURRENT_EMPLOYER = 'Craft Silicon Payments'
+export const CURRENT_COMPANY = CURRENT_EMPLOYER
 
 export const profileSummary =
   'ICT and customer-experience professional with hands-on expertise in software support, county revenue systems, and network administration, currently completing a part-time BSc in Information Technology while working. Experienced in deploying and supporting revenue-management platforms for major public-sector clients, training end users, and resolving technical challenges under pressure, with a strong record in technical sales and customer relations.'
@@ -16,7 +18,7 @@ export const hiringHighlights = [
     emoji: '🏛️',
     title: 'Public-sector systems',
     description:
-      'Deploy and support County Revenue Management Systems for Meru, Homa Bay, Kajiado, and Turkana — including JamboPay and CIROM platforms.',
+      'Deploy and support County Revenue Management Systems for Meru, Homa Bay, Kajiado, and Turkana through Craft Silicon Payments.',
     accent: 'from-violet-500/20 to-purple-500/10 border-violet-500/30',
   },
   {
@@ -30,7 +32,7 @@ export const hiringHighlights = [
     emoji: '💻',
     title: 'Developer & support',
     description:
-      'Built Craft Trail (intern tracking) and Rio Fish Farm management systems while delivering day-to-day client support at Craft Silicon.',
+      'Built Craft Trail (intern tracking) and Rio Fish Farm management systems while delivering client support at Craft Silicon Payments, Nairobi.',
     accent: 'from-fuchsia-500/20 to-pink-500/10 border-fuchsia-500/30',
   },
   {
@@ -46,9 +48,9 @@ export const experience = [
   {
     period: '2024 — Present',
     role: 'Customer Experience & Junior Software Developer',
-    org: 'Craft Silicon Payments',
+    org: 'Craft Silicon Payments · Nairobi',
     highlights: [
-      'Deploy and support the County Revenue Management System for Meru, Homa Bay, Kajiado, and Turkana County Revenue Boards',
+      'Deploy and support the County Revenue Management System for Meru, Homa Bay, Kajiado, and Turkana County Revenue Boards via Craft Silicon Payments',
       'Train county staff and onboard new users for smooth system adoption',
       'Analyse client usage data and prepare internal performance reports',
       'Diagnose and resolve system incidents, minimising client downtime',
@@ -104,7 +106,7 @@ export const experience = [
     org: 'Meru County Revenue Board',
     highlights: [
       'Terminated network cabling, configured connectivity, repaired POS machines',
-      'Data entry, analysis, and maintenance of JamboPay and CIROM systems',
+      'Data entry, analysis, and maintenance of Craft Silicon Payments revenue systems',
     ],
     accent: 'bg-sky-500',
   },
