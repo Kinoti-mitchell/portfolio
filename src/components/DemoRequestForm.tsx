@@ -143,7 +143,6 @@ export function DemoRequestForm() {
                     'Live walkthrough of any project — I will screen-share and explain architecture',
                     'CV & certificates available on this site — no extra emails needed',
                     'Honest answers about my stack, process, and availability',
-                    'Response within 24 hours',
                   ].map((item) => (
                     <li
                       key={item}
@@ -446,8 +445,7 @@ function SuccessPanel({ onReset }: { onReset: () => void }) {
       <CheckCircle className="mx-auto text-emerald-400" size={52} />
       <h3 className="mt-4 text-2xl font-bold text-white">You're all set!</h3>
       <p className="mt-2 text-[var(--color-muted)]">
-        Inquiry received — I'll reply within 24 hours. Check your inbox for my
-        response.
+        Inquiry received — check your inbox for my response.
       </p>
       <a
         href={`mailto:${EMAIL}`}

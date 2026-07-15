@@ -1,5 +1,5 @@
-import { Mail, Phone, Send } from 'lucide-react'
-import { EMAIL, PHONE, LOCATION } from '../data/profile'
+import { Mail, Phone } from 'lucide-react'
+import { EMAIL, LOCATION, PHONE, PHONE_TEL } from '../data/profile'
 import { GitHubIcon } from './GitHubIcon'
 import { SectionBadge } from './SectionBadge'
 
@@ -31,7 +31,7 @@ export function Contact() {
                 {EMAIL}
               </a>
               <a
-                href={`tel:${PHONE.replace(/\s/g, '')}`}
+                href={`tel:${PHONE_TEL}`}
                 className="btn-ghost inline-flex items-center gap-2 rounded-xl px-8 py-4 text-sm font-medium"
               >
                 <Phone size={18} />
@@ -49,10 +49,6 @@ export function Contact() {
             </div>
 
             <p className="mt-6 text-sm text-[var(--color-muted)]">{LOCATION}</p>
-            <p className="mt-4 inline-flex items-center gap-2 text-sm text-violet-300/80">
-              <Send size={14} />
-              Usually responds within 24 hours
-            </p>
           </div>
         </div>
       </div>
