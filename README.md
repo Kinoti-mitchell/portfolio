@@ -29,13 +29,10 @@ npm run preview
 
 ## Deploy to GitHub Pages
 
-1. Create a repo named `portfolio` (or `Kinoti-mitchell.github.io` for a user site)
-2. Push this project to `main`
-3. In repo **Settings → Pages**, set source to **GitHub Actions**
-4. Push to `main` — the workflow deploys automatically
+1. Push to `main` — the GitHub Action builds and pushes to the `gh-pages` branch automatically.
+2. Open **Settings → Pages** on the repo.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Choose branch **`gh-pages`**, folder **`/ (root)`**, then **Save**.
+5. Wait 1–2 minutes, then visit **https://kinoti-mitchell.github.io/portfolio/**
 
-Live URL will be:
-- `https://kinoti-mitchell.github.io/portfolio/` (project site)
-- or `https://kinoti-mitchell.github.io/` (if repo is named `Kinoti-mitchell.github.io`)
-
-If using a project site, update `base` in `vite.config.ts` to `'/portfolio/'`.
+If you see a 404, Pages is not enabled yet — follow steps 2–4 above.
