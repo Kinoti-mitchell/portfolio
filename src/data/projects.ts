@@ -3,7 +3,6 @@ export type Project = {
   description: string
   tags: string[]
   github: string
-  live?: string
   featured?: boolean
   accent: string
   emoji: string
@@ -18,7 +17,6 @@ export const projects: Project[] = [
       'Intern and industrial attachment daily activity tracking with role-based dashboards, charts, and admin communication. Built as a PWA with Supabase auth and row-level security.',
     tags: ['React', 'TypeScript', 'Tailwind', 'Supabase', 'Vite'],
     github: 'https://github.com/Kinoti-mitchell/attachment',
-    live: 'https://kinoti-mitchell.github.io/attachment',
     featured: true,
   },
   {

@@ -18,8 +18,12 @@ export function Contact() {
               <span className="gradient-text">awesome</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--color-muted)]">
-              Open to internships, freelance work, and collaborations. Drop me a
-              line — I'd love to hear from you.
+              Open to internships, freelance work, and collaborations — or use
+              the{' '}
+              <a href="#request-demo" className="text-violet-300 underline">
+                demo request form
+              </a>{' '}
+              above to see my projects live.
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-4">
