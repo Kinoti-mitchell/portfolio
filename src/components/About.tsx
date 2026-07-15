@@ -1,4 +1,4 @@
-import { profileSummary, CURRENT_COMPANY, CURRENT_ROLE, EMPLOYER_LOCATION, LOCATION } from '../data/profile'
+import { profileSummary, CURRENT_COMPANY, CURRENT_ROLE, EMPLOYER_LOCATION, LOCATION, openTo } from '../data/profile'
 import { SectionBadge } from './SectionBadge'
 
 const stats = [
@@ -59,6 +59,28 @@ export function About() {
               </dd>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 glass-strong rounded-2xl p-8">
+          <SectionBadge>Currently open to</SectionBadge>
+          <h3 className="mt-3 text-xl font-bold text-white md:text-2xl">
+            Open to new opportunities
+          </h3>
+          <p className="mt-2 max-w-2xl text-[var(--color-muted)]">
+            ICT roles, software support, customer experience, and demo
+            requests — based in Meru, working with Craft Silicon Payments in
+            Nairobi.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {openTo.map((item) => (
+              <span
+                key={item.label}
+                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/90"
+              >
+                {item.emoji} {item.label}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

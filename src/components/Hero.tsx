@@ -7,13 +7,11 @@ import {
   profileSummary,
   TITLE,
 } from '../data/profile'
-import { ArrowDown, Briefcase, Wrench } from 'lucide-react'
-import { GitHubIcon } from './GitHubIcon'
 import { SectionBadge } from './SectionBadge'
 
 export function Hero() {
   return (
-    <section className="relative px-6 pb-16 pt-20 md:pt-28">
+    <section className="relative px-6 pb-12 pt-20 md:pt-28">
       <div className="mx-auto max-w-6xl">
         <div className="animate-fade-up">
           <SectionBadge>
@@ -36,40 +34,7 @@ export function Hero() {
           {profileSummary.slice(0, 200)}…
         </p>
 
-        <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-3">
-          <a
-            href="#documents"
-            className="btn-primary inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm"
-          >
-            View CV &amp; documents
-            <ArrowDown size={16} />
-          </a>
-          <a
-            href="#skills"
-            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-medium"
-          >
-            <Wrench size={16} />
-            My toolkit
-          </a>
-          <a
-            href="#experience"
-            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-medium"
-          >
-            <Briefcase size={16} />
-            Experience
-          </a>
-          <a
-            href="https://github.com/Kinoti-mitchell"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-medium"
-          >
-            <GitHubIcon size={16} />
-            GitHub
-          </a>
-        </div>
-
-        <div className="animate-fade-up delay-3 mt-12 flex flex-wrap gap-2">
+        <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-2">
           {[
             'Craft Silicon Payments',
             'County Revenue',

@@ -8,7 +8,6 @@ import { Experience } from './components/Experience'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { OpenTo } from './components/OpenTo'
 import { Projects } from './components/Projects'
 import { RecruiterPath } from './components/RecruiterPath'
 import { Skills } from './components/Skills'
@@ -23,7 +22,6 @@ function App() {
       <main>
         <Hero />
         <RecruiterPath />
-        <OpenTo />
         <About />
         <WhyHireMe />
         <Experience />
