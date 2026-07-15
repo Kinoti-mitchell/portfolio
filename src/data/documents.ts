@@ -20,12 +20,12 @@ export const documents: DocumentItem[] = [
     id: 'cv',
     title: 'Curriculum Vitae',
     description:
-      'Developer-focused CV — Craft Silicon, projects, education, and referees. Request print access or a PDF copy by email.',
+      'Developer-focused CV — Craft Silicon, projects, education, and referees. Request a PDF copy by email.',
     type: 'cv',
     access: 'private',
     date: 'July 2026',
     emoji: '📄',
-    accent: 'from-teal-500 to-cyan-600',
+    accent: 'from-indigo-500 to-violet-600',
   },
   {
     id: 'diploma-ict',
@@ -38,7 +38,7 @@ export const documents: DocumentItem[] = [
     date: 'July 2022',
     result: 'Credit',
     emoji: '🎓',
-    accent: 'from-sky-500 to-teal-600',
+    accent: 'from-slate-500 to-indigo-600',
   },
 ]
 

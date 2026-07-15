@@ -1,13 +1,13 @@
 import { createContext, useContext, useState, type ReactNode } from 'react'
 
-type InquiryKind = 'demo' | 'certificate' | 'cv-print' | 'cv-download' | 'general'
+type InquiryKind = 'demo' | 'certificate' | 'cv' | 'general'
 
 type InquiryContextValue = {
   selectedProject: string
   inquiryKind: InquiryKind
   requestDemo: (project: string) => void
   requestCertificate: (label: string) => void
-  requestCvAccess: (kind: 'print' | 'download') => void
+  requestCv: () => void
 }
 
 const InquiryContext = createContext<InquiryContextValue | null>(null)
@@ -32,11 +32,9 @@ export function DemoProvider({ children }: { children: ReactNode }) {
     scrollToConnect()
   }
 
-  const requestCvAccess = (kind: 'print' | 'download') => {
-    setSelectedProject(
-      kind === 'print' ? 'CV print access' : 'CV PDF download',
-    )
-    setInquiryKind(kind === 'print' ? 'cv-print' : 'cv-download')
+  const requestCv = () => {
+    setSelectedProject('Curriculum Vitae')
+    setInquiryKind('cv')
     scrollToConnect()
   }
 
@@ -47,7 +45,7 @@ export function DemoProvider({ children }: { children: ReactNode }) {
         inquiryKind,
         requestDemo,
         requestCertificate,
-        requestCvAccess,
+        requestCv,
       }}
     >
       {children}

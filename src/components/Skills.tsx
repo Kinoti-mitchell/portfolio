@@ -5,17 +5,17 @@ const groups = [
   {
     title: 'Frontend & UI',
     items: techStack.frontend,
-    accent: 'border-teal-500/30 bg-teal-500/8',
+    accent: 'border-indigo-500/30 bg-indigo-500/8',
   },
   {
     title: 'Backend & data',
     items: [...techStack.backend, ...techStack.data],
-    accent: 'border-cyan-500/30 bg-cyan-500/8',
+    accent: 'border-slate-500/30 bg-slate-500/8',
   },
   {
     title: 'Platforms & ops',
     items: techStack.platforms,
-    accent: 'border-slate-500/30 bg-slate-500/8',
+    accent: 'border-violet-500/25 bg-violet-500/6',
   },
 ]
 
@@ -33,7 +33,7 @@ export function Skills() {
       />
 
       <div className="mt-10">
-        <p className="text-sm font-semibold uppercase tracking-wider text-teal-300/90">
+        <p className="text-sm font-semibold uppercase tracking-wider text-indigo-300/90">
           Languages
         </p>
         <ul className="mt-4 flex flex-wrap gap-2.5">

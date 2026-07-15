@@ -14,7 +14,7 @@ export const projects: Project[] = [
     title: 'Craft Trail',
     subtitle: 'TRace — Craft Silicon',
     emoji: '📋',
-    accent: 'from-teal-500 to-cyan-600',
+    accent: 'from-indigo-500 to-violet-600',
     description:
       'Internal intern & attaché tracking system built at Craft Silicon. Daily logs, progress tracking, and admin communication — shipped as a React PWA with Supabase.',
     tags: ['React', 'TypeScript', 'Supabase', 'PWA'],
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     title: 'Rio Fish Farm',
     subtitle: 'SAMAKI Fish System',
     emoji: '🐟',
-    accent: 'from-emerald-500 to-teal-600',
+    accent: 'from-slate-500 to-indigo-600',
     description:
       'Fish-farm operations and record keeping that grew into a supply-chain platform with outlet distribution, roles, and audit trails.',
     tags: ['React', 'Node.js', 'Express', 'Supabase', 'Leaflet'],
@@ -35,7 +35,7 @@ export const projects: Project[] = [
   {
     title: 'E-commerce Big Data Analytics',
     emoji: '📊',
-    accent: 'from-sky-500 to-blue-600',
+    accent: 'from-violet-500 to-indigo-600',
     description:
       'Academic data-lake project with ML pipelines for fraud detection, sentiment analysis, churn prediction, and recommendations — Streamlit dashboard included.',
     tags: ['Python', 'Streamlit', 'PySpark', 'Machine Learning'],

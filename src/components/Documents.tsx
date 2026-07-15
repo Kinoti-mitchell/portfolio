@@ -1,4 +1,4 @@
-import { Download, FileText, FolderOpen, Lock, Printer, Shield } from 'lucide-react'
+import { FileText, FolderOpen, Lock, Shield } from 'lucide-react'
 import {
   certificateRequestLabel,
   cvDocument,
@@ -19,7 +19,7 @@ export function Documents() {
             Documents & <span className="gradient-text">credentials</span>
           </>
         }
-        description="Request print access or a PDF copy — nothing downloads automatically."
+        description="Request a CV copy by email — nothing downloads automatically."
       />
 
       <div className="alert-info mt-6 flex items-start gap-3 p-4 text-left">
@@ -54,16 +54,11 @@ export function Documents() {
 }
 
 function CvCard({ doc }: { doc: DocumentItem }) {
-  const { requestCvAccess } = useDemoRequest()
+  const { requestCv } = useDemoRequest()
 
-  function requestPrint() {
-    void notifyActivity('cv-print-request', doc.title)
-    requestCvAccess('print')
-  }
-
-  function requestDownload() {
-    void notifyActivity('cv-download-request', doc.title)
-    requestCvAccess('download')
+  function handleRequest() {
+    void notifyActivity('cv-request', doc.title)
+    requestCv()
   }
 
   return (
@@ -71,7 +66,7 @@ function CvCard({ doc }: { doc: DocumentItem }) {
       <div className={`project-accent bg-gradient-to-r ${doc.accent}`} />
       <div className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between">
         <div className="flex items-start gap-5">
-          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500/20 to-cyan-500/20 text-3xl">
+          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500/20 to-violet-500/15 text-3xl">
             {doc.emoji}
           </span>
           <div>
@@ -85,30 +80,20 @@ function CvCard({ doc }: { doc: DocumentItem }) {
               {doc.description}
             </p>
             {doc.date && (
-              <p className="mt-2 font-mono text-xs text-cyan-300/80">
+              <p className="mt-2 font-mono text-xs text-indigo-300/80">
                 Updated {doc.date}
               </p>
             )}
           </div>
         </div>
-        <div className="flex shrink-0 flex-col gap-3 sm:flex-row md:flex-col">
-          <button
-            type="button"
-            onClick={requestPrint}
-            className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm"
-          >
-            <Printer size={16} />
-            Request print access
-          </button>
-          <button
-            type="button"
-            onClick={requestDownload}
-            className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-medium"
-          >
-            <Download size={16} />
-            Request PDF download
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={handleRequest}
+          className="btn-primary inline-flex shrink-0 items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm"
+        >
+          <FileText size={16} />
+          Request CV
+        </button>
       </div>
     </article>
   )
@@ -137,7 +122,7 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
                 <Lock size={14} className="text-amber-400" />
               </div>
               {doc.issuer && (
-                <p className="text-xs text-cyan-300/80">{doc.issuer}</p>
+                <p className="text-xs text-indigo-300/80">{doc.issuer}</p>
               )}
             </div>
           </div>

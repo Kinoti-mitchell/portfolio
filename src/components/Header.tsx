@@ -19,7 +19,7 @@ export function Header() {
           href="#"
           className="flex items-center gap-2 text-lg font-bold tracking-tight text-white"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-teal-600 to-cyan-600 text-xs font-bold">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-xs font-bold">
             MK
           </span>
           Mitch
@@ -88,7 +88,7 @@ export function Header() {
             <li>
               <a
                 href="#request-demo"
-                className="block font-medium text-teal-300"
+                className="block font-medium text-indigo-300"
                 onClick={() => setOpen(false)}
               >
                 Contact

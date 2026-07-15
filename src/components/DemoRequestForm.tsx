@@ -45,15 +45,9 @@ export function DemoRequestForm() {
       setMessage(`I would like a copy of: ${selectedProject}.`)
       return
     }
-    if (inquiryKind === 'cv-print') {
+    if (inquiryKind === 'cv') {
       setMessage(
-        'I would like print access to your CV (permission to print a copy for hiring review).',
-      )
-      return
-    }
-    if (inquiryKind === 'cv-download') {
-      setMessage(
-        'I would like a PDF download of your CV for our hiring process.',
+        'I would like a copy of your CV (PDF) for our hiring process.',
       )
       return
     }
@@ -175,7 +169,7 @@ export function DemoRequestForm() {
           </a>
           <p className="text-center text-xs text-[var(--color-muted)]">
             Prefer a quicker path?{' '}
-            <a href={`mailto:${EMAIL}`} className="text-teal-300 hover:underline">
+            <a href={`mailto:${EMAIL}`} className="text-indigo-300 hover:underline">
               Email me directly
             </a>
           </p>

@@ -40,7 +40,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="animate-fade-up delay-2 mt-3 text-lg font-semibold text-teal-200/95 md:text-xl">
+            <p className="animate-fade-up delay-2 mt-3 text-lg font-semibold text-indigo-200 md:text-xl">
               {TITLE}
             </p>
             <p className="animate-fade-up delay-2 mt-1.5 text-sm text-[var(--color-muted)] md:text-base">

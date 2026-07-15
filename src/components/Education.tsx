@@ -19,11 +19,11 @@ export function Education() {
             key={item.qualification}
             className="surface-card p-6 text-left"
           >
-            <p className="font-mono text-xs text-teal-300/90">{item.period}</p>
+            <p className="font-mono text-xs text-indigo-300/90">{item.period}</p>
             <h3 className="mt-2 text-lg font-bold text-white">
               {item.qualification}
             </h3>
-            <p className="mt-1 text-sm text-cyan-300/90">{item.institution}</p>
+            <p className="mt-1 text-sm text-slate-300">{item.institution}</p>
             {'note' in item &&
               typeof item.note === 'string' &&
               item.note && (

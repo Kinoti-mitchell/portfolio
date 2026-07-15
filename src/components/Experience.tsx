@@ -23,11 +23,11 @@ export function Experience() {
             <div className="surface-card p-5 md:p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="text-lg font-bold text-white">{item.role}</h3>
-                <span className="font-mono text-xs text-teal-300/90">
+                <span className="font-mono text-xs text-indigo-300/90">
                   {item.period}
                 </span>
               </div>
-              <p className="mt-1 text-sm text-cyan-300/85">{item.org}</p>
+              <p className="mt-1 text-sm text-slate-300">{item.org}</p>
               <ul className="mt-3 space-y-2 text-left">
                 {item.highlights.map((h) => (
                   <li

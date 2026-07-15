@@ -34,11 +34,11 @@ export function About() {
       </dl>
 
       <div className="surface-card mt-8 p-7 md:p-8">
-        <p className="text-sm font-semibold uppercase tracking-wider text-teal-300/90">
+        <p className="text-sm font-semibold uppercase tracking-wider text-indigo-300/90">
           Currently
         </p>
         <p className="mt-2 text-xl font-bold text-white">{CURRENT_ROLE}</p>
-        <p className="text-cyan-300">{CURRENT_COMPANY}</p>
+        <p className="text-indigo-200">{CURRENT_COMPANY}</p>
         <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">
           {RELOCATION}
         </p>

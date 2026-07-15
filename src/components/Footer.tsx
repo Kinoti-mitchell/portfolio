@@ -12,7 +12,7 @@ export function Footer() {
           href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-[var(--color-muted)] transition-colors hover:text-teal-300"
+          className="inline-flex items-center gap-2 text-sm text-[var(--color-muted)] transition-colors hover:text-indigo-300"
         >
           <GitHubIcon size={14} />
           GitHub

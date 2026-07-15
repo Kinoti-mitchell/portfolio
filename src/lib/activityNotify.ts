@@ -1,15 +1,11 @@
 import { EMAIL } from '../data/profile'
 
-export type ActivityEvent =
-  | 'cv-print-request'
-  | 'cv-download-request'
-  | 'certificate-request'
+export type ActivityEvent = 'cv-request' | 'certificate-request'
 
-const COOLDOWN_MS = 4 * 60 * 60 * 1000 // one alert per event per browser session window
+const COOLDOWN_MS = 4 * 60 * 60 * 1000
 
 /**
  * Lightweight FormSubmit alert when someone requests CV or certificate access.
- * Does NOT capture visitor identity unless they also submit the connect form.
  */
 export async function notifyActivity(
   event: ActivityEvent,
@@ -22,8 +18,7 @@ export async function notifyActivity(
   localStorage.setItem(storageKey, String(Date.now()))
 
   const labels: Record<ActivityEvent, string> = {
-    'cv-print-request': 'CV print access requested',
-    'cv-download-request': 'CV PDF download requested',
+    'cv-request': 'CV access requested',
     'certificate-request': 'Certificate requested',
   }
 

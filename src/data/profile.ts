@@ -27,21 +27,21 @@ export const hiringHighlights = [
     title: 'Ships real software',
     description:
       'Built Craft Trail (intern tracking PWA) and Rio Fish Farm (supply-chain management) with React, TypeScript, and Supabase — used on the job, not only coursework.',
-    accent: 'from-teal-500/20 to-cyan-500/10 border-teal-500/30',
+    accent: 'from-indigo-500/20 to-violet-500/10 border-indigo-500/30',
   },
   {
     emoji: '🏛️',
     title: 'Production systems',
     description:
       'Deploy and support County Revenue Management Systems for four county boards — Meru, Homa Bay, Kajiado, and Turkana — through Craft Silicon Payments.',
-    accent: 'from-sky-500/20 to-blue-500/10 border-sky-500/30',
+    accent: 'from-slate-500/20 to-indigo-500/10 border-slate-500/30',
   },
   {
     emoji: '🎓',
     title: 'CX that strengthens engineering',
     description:
       'Train county staff, onboard users, and translate technical detail for non-technical audiences in English and Kiswahili — skills that make better products.',
-    accent: 'from-emerald-500/20 to-teal-500/10 border-emerald-500/30',
+    accent: 'from-violet-500/15 to-indigo-500/10 border-violet-500/25',
   },
   {
     emoji: '📊',
@@ -64,7 +64,7 @@ export const experience = [
       'Train and onboard county staff; diagnose incidents to keep clients running',
       'Analyse usage data and deliver performance reports to management',
     ],
-    accent: 'bg-teal-500',
+    accent: 'bg-indigo-500',
   },
   {
     period: '2023 — 2024',
@@ -75,7 +75,7 @@ export const experience = [
       'Advised customers on devices; closed sales matched to budget and need',
       'Handled after-sales support and follow-up',
     ],
-    accent: 'bg-cyan-500',
+    accent: 'bg-violet-500',
   },
   {
     period: '2022 — 2023',
@@ -106,14 +106,14 @@ export const education = [
     qualification: 'Bachelor of Science in Information Technology',
     institution: 'Meru University of Science and Technology',
     note: 'Part-time, in progress',
-    accent: 'from-teal-500 to-cyan-600',
+    accent: 'from-indigo-500 to-violet-600',
   },
   {
     period: '2018 — 2022',
     qualification: 'Diploma in Information Communication Technology',
     institution: 'Meru National Polytechnic',
     note: 'KNEC · Credit',
-    accent: 'from-sky-500 to-teal-600',
+    accent: 'from-slate-500 to-indigo-600',
   },
   {
     period: '2014 — 2017',

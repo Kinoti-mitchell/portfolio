@@ -67,7 +67,7 @@ function ProjectCard({
           <div>
             <h3 className="text-lg font-bold text-white">{project.title}</h3>
             {project.subtitle && (
-              <p className="text-xs text-cyan-300/80">{project.subtitle}</p>
+              <p className="text-xs text-indigo-300/80">{project.subtitle}</p>
             )}
           </div>
         </div>
