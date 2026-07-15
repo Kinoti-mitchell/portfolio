@@ -1,6 +1,7 @@
 import { ArrowDown, Play, Sparkles } from 'lucide-react'
 import { GitHubIcon } from './GitHubIcon'
 import { SectionBadge } from './SectionBadge'
+import { CvDownloadButton } from './Documents'
 import { useDemoRequest } from '../context/DemoContext'
 
 export function Hero() {
@@ -46,6 +47,7 @@ export function Hero() {
             <Play size={16} fill="currentColor" />
             Request a demo
           </button>
+          <CvDownloadButton />
           <a
             href="https://github.com/Kinoti-mitchell"
             target="_blank"

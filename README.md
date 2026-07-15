@@ -27,6 +27,10 @@ npm run build
 npm run preview
 ```
 
+## CV & certificates
+
+Add PDFs to `public/documents/` and list them in `src/data/documents.ts`. See `public/documents/README.md` for step-by-step instructions.
+
 ## Deploy to GitHub Pages
 
 1. Push to `main` — the GitHub Action builds and pushes to the `gh-pages` branch automatically.

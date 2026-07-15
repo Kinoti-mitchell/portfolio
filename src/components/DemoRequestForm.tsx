@@ -130,7 +130,7 @@ export function DemoRequestForm() {
                 <ul className="mt-4 space-y-3">
                   {[
                     'Live walkthrough of any project — I will screen-share and explain architecture',
-                    'Resume / CV on request',
+                    'CV & certificates available on this site — no extra emails needed',
                     'Honest answers about my stack, process, and availability',
                     'Response within 24 hours',
                   ].map((item) => (
