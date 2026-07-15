@@ -1,25 +1,30 @@
+import { SectionBadge } from './SectionBadge'
 import { skills } from '../data/projects'
 
 export function Skills() {
   return (
-    <section id="skills" className="px-6 py-20">
-      <div className="mx-auto max-w-5xl">
-        <p className="font-mono text-sm text-[var(--color-accent)]">Skills</p>
-        <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-          Technologies I work with
+    <section id="skills" className="px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        <SectionBadge>Skills</SectionBadge>
+        <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
+          My <span className="gradient-text">toolkit</span>
         </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((group) => (
             <div
               key={group.category}
-              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5"
+              className={`card-hover rounded-2xl border p-6 ${group.accent}`}
             >
-              <h3 className="font-semibold text-white">{group.category}</h3>
-              <ul className="mt-3 flex flex-wrap gap-2">
+              <h3 className="flex items-center gap-2 text-lg font-bold text-white">
+                <span>{group.emoji}</span>
+                {group.category}
+              </h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1 text-sm text-[var(--color-muted)]"
+                    className={`rounded-lg border px-3 py-1.5 text-sm font-medium ${group.tagAccent}`}
                   >
                     {item}
                   </li>

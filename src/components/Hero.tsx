@@ -1,36 +1,44 @@
-import { ArrowDown, ExternalLink } from 'lucide-react'
+import { ArrowDown, ExternalLink, Sparkles } from 'lucide-react'
 import { GitHubIcon } from './GitHubIcon'
+import { SectionBadge } from './SectionBadge'
 
 export function Hero() {
   return (
-    <section className="hero-glow px-6 pb-20 pt-16 md:pt-24">
-      <div className="mx-auto max-w-5xl">
-        <p className="mb-4 font-mono text-sm text-[var(--color-accent)]">
-          Hello, I'm Mitchell Kinoti
-        </p>
-        <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
-          Full-stack developer building{' '}
-          <span className="gradient-text">real-world systems</span> with React,
-          Python &amp; data.
+    <section className="relative px-6 pb-24 pt-20 md:pt-28">
+      <div className="mx-auto max-w-6xl">
+        <div className="animate-fade-up">
+          <SectionBadge>
+            <Sparkles size={12} className="mr-1.5 inline" />
+            Available for work
+          </SectionBadge>
+        </div>
+
+        <h1 className="animate-fade-up delay-1 mt-8 max-w-4xl text-5xl font-extrabold leading-[1.08] tracking-tight text-white md:text-7xl">
+          Hey, I'm{' '}
+          <span className="gradient-text">Mitchell Kinoti</span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
-          I build web applications, knowledge-based expert systems, and big-data
-          analytics pipelines — from intern tracking platforms to fish supply
-          chain management and ML-powered dashboards.
+
+        <p className="animate-fade-up delay-2 mt-6 max-w-2xl text-xl leading-relaxed text-[var(--color-muted)] md:text-2xl">
+          Full-stack developer crafting{' '}
+          <span className="font-semibold text-violet-300">web apps</span>,{' '}
+          <span className="font-semibold text-cyan-300">expert systems</span> &amp;{' '}
+          <span className="font-semibold text-pink-300">data pipelines</span> that
+          solve real problems.
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
+
+        <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-[var(--color-surface)] transition-colors hover:bg-[var(--color-accent-dim)]"
+            className="btn-primary inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm"
           >
-            View my work
+            Explore projects
             <ArrowDown size={16} />
           </a>
           <a
             href="https://github.com/Kinoti-mitchell"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-6 py-3 text-sm font-medium text-white transition-colors hover:border-[var(--color-accent)] hover:bg-[var(--color-surface-elevated)]"
+            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium"
           >
             <GitHubIcon size={16} />
             GitHub
@@ -39,11 +47,24 @@ export function Hero() {
             href="https://kinoti-mitchell.github.io/attachment"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-6 py-3 text-sm font-medium text-white transition-colors hover:border-[var(--color-accent)] hover:bg-[var(--color-surface-elevated)]"
+            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium"
           >
             <ExternalLink size={16} />
             Live demo
           </a>
+        </div>
+
+        <div className="animate-fade-up delay-3 mt-16 flex flex-wrap gap-3">
+          {['React', 'Python', 'Supabase', 'Streamlit', 'TypeScript', 'ML'].map(
+            (tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-white/80"
+              >
+                {tech}
+              </span>
+            ),
+          )}
         </div>
       </div>
     </section>

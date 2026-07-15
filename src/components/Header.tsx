@@ -1,4 +1,4 @@
-import { Mail, Menu, X } from 'lucide-react'
+import { Mail, Menu, Sparkles, X } from 'lucide-react'
 import { GitHubIcon } from './GitHubIcon'
 import { useState } from 'react'
 
@@ -13,19 +13,21 @@ export function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-surface)]/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="#" className="text-lg font-semibold tracking-tight text-white">
-          MK<span className="text-[var(--color-accent)]">.</span>
+    <header className="sticky top-0 z-50 glass border-b border-white/10">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a
+          href="#"
+          className="flex items-center gap-2 text-lg font-bold tracking-tight text-white"
+        >
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-cyan-500 text-sm font-black">
+            MK
+          </span>
+          Mitchell
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-[var(--color-muted)] transition-colors hover:text-white"
-            >
+            <a key={link.href} href={link.href} className="nav-link text-sm font-medium">
               {link.label}
             </a>
           ))}
@@ -36,22 +38,23 @@ export function Header() {
             href="https://github.com/Kinoti-mitchell"
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg p-2 text-[var(--color-muted)] transition-colors hover:bg-[var(--color-surface-elevated)] hover:text-white"
+            className="rounded-xl p-2.5 text-[var(--color-muted)] transition-all hover:bg-white/10 hover:text-white"
             aria-label="GitHub"
           >
             <GitHubIcon size={18} />
           </a>
           <a
             href="mailto:kinotimitchell@gmail.com"
-            className="rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-[var(--color-surface)] transition-colors hover:bg-[var(--color-accent-dim)]"
+            className="btn-primary inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm"
           >
-            Get in touch
+            <Sparkles size={15} />
+            Hire me
           </a>
         </div>
 
         <button
           type="button"
-          className="rounded-lg p-2 text-[var(--color-muted)] md:hidden"
+          className="rounded-xl p-2 text-[var(--color-muted)] md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -60,20 +63,20 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-[var(--color-border)] px-6 py-4 md:hidden">
+        <nav className="border-t border-white/10 px-6 py-4 md:hidden">
           <ul className="flex flex-col gap-4">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block text-[var(--color-muted)] hover:text-white"
+                  className="block font-medium text-[var(--color-muted)] hover:text-white"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
-            <li className="flex gap-3 pt-2">
+            <li className="flex gap-4 pt-2">
               <a
                 href="https://github.com/Kinoti-mitchell"
                 target="_blank"
@@ -84,7 +87,7 @@ export function Header() {
               </a>
               <a
                 href="mailto:kinotimitchell@gmail.com"
-                className="flex items-center gap-2 text-sm text-[var(--color-accent)]"
+                className="flex items-center gap-2 text-sm text-violet-300"
               >
                 <Mail size={16} /> Email
               </a>
