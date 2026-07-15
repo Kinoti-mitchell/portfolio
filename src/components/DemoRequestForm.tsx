@@ -117,14 +117,14 @@ export function DemoRequestForm() {
     <section id="request-demo" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
-          <SectionBadge>Hire or connect</SectionBadge>
-          <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-            Let's <span className="gradient-text">talk</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-            Hiring? Request a live demo, ask for my resume, or pitch an
-            opportunity — pick your path below.
-          </p>
+            <SectionBadge>Connect — last step</SectionBadge>
+            <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
+              Get in <span className="gradient-text">touch</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
+              Reviewed my CV and toolkit? Request a demo, certificate copy, or
+              discuss a role — email or submit the form below.
+            </p>
         </div>
 
         {status === 'success' ? (

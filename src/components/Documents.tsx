@@ -1,9 +1,9 @@
 import {
-  Download,
   ExternalLink,
   FileText,
   FolderOpen,
   Lock,
+  Printer,
   Shield,
 } from 'lucide-react'
 import {
@@ -13,6 +13,7 @@ import {
   privateDocuments,
   type DocumentItem,
 } from '../data/documents'
+import { notifyActivity } from '../lib/activityNotify'
 import { useDemoRequest } from '../context/DemoContext'
 import { SectionBadge } from './SectionBadge'
 
@@ -25,18 +26,16 @@ export function Documents() {
           Documents <span className="gradient-text">hub</span>
         </h2>
         <p className="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-          My CV is public for recruiters. Sensitive certificates are{' '}
-          <strong className="text-white">not posted online</strong> — verified
-          employers can request a copy through the connect form.
+          Download or print my CV below. Certificates are protected — request
+          access at the bottom of the page.
         </p>
 
         <div className="mt-6 flex items-start gap-3 rounded-xl border border-emerald-500/25 bg-emerald-500/10 p-4">
           <Shield className="mt-0.5 shrink-0 text-emerald-400" size={20} />
           <p className="text-sm text-[var(--color-muted)]">
             <strong className="text-emerald-300">Privacy:</strong> Certificate
-            scans are never uploaded to this public website. They are shared
-            privately by email only after you submit a request — protecting
-            serial numbers and personal details.
+            scans are never posted publicly. Full copies are emailed only after
+            you review a connect-form request.
           </p>
         </div>
 
@@ -52,9 +51,6 @@ export function Documents() {
               <Lock size={20} className="text-amber-400" />
               Protected credentials
             </h3>
-            <p className="mt-2 text-sm text-[var(--color-muted)]">
-              Metadata only — full document shared on verified request.
-            </p>
             <div className="mt-6 grid gap-5 sm:grid-cols-2">
               {privateDocuments.map((doc) => (
                 <PrivateDocumentCard key={doc.id} doc={doc} />
@@ -62,13 +58,6 @@ export function Documents() {
             </div>
           </>
         )}
-
-        <p className="mt-10 text-center text-sm text-[var(--color-muted)]">
-          CV opens in a new tab — use Print / PDF to save. To add more protected
-          certificates, list them in{' '}
-          <code className="text-violet-300">src/data/documents.ts</code> with{' '}
-          <code className="text-violet-300">access: &apos;private&apos;</code>.
-        </p>
       </div>
     </section>
   )
@@ -76,6 +65,16 @@ export function Documents() {
 
 function CvCard({ doc }: { doc: DocumentItem }) {
   const url = documentUrl(doc.file!)
+
+  function openCv() {
+    void notifyActivity('cv-view', doc.title)
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
+  function printCv() {
+    void notifyActivity('cv-print', doc.title)
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <article className="card-hover overflow-hidden rounded-2xl glass">
@@ -87,7 +86,7 @@ function CvCard({ doc }: { doc: DocumentItem }) {
           </span>
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-violet-300">
-              Public · safe to share
+              Public · for recruiters
             </p>
             <h3 className="mt-1 text-2xl font-bold text-white">{doc.title}</h3>
             <p className="mt-2 max-w-lg text-[var(--color-muted)]">
@@ -100,7 +99,24 @@ function CvCard({ doc }: { doc: DocumentItem }) {
             )}
           </div>
         </div>
-        <DocumentActions url={url} primary />
+        <div className="flex shrink-0 flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={openCv}
+            className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm"
+          >
+            <ExternalLink size={16} />
+            Open CV
+          </button>
+          <button
+            type="button"
+            onClick={printCv}
+            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium"
+          >
+            <Printer size={16} />
+            Print / save PDF
+          </button>
+        </div>
       </div>
     </article>
   )
@@ -108,6 +124,11 @@ function CvCard({ doc }: { doc: DocumentItem }) {
 
 function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
   const { requestCertificate } = useDemoRequest()
+
+  function handleRequest() {
+    void notifyActivity('certificate-request', doc.title)
+    requestCertificate(certificateRequestLabel(doc))
+  }
 
   return (
     <article className="relative overflow-hidden rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-500/5 to-transparent">
@@ -153,14 +174,14 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
         <div className="mt-5 border-t border-white/10 pt-4">
           <button
             type="button"
-            onClick={() => requestCertificate(certificateRequestLabel(doc))}
+            onClick={handleRequest}
             className="btn-primary inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm"
           >
             <FolderOpen size={16} />
             Request certificate copy
           </button>
           <p className="mt-2 text-center text-xs text-[var(--color-muted)]">
-            I will email the document after reviewing your request.
+            Scrolls to connect form — I email the document after review.
           </p>
         </div>
       </div>
@@ -168,58 +189,15 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
   )
 }
 
-function DocumentActions({
-  url,
-  primary = false,
-}: {
-  url: string
-  primary?: boolean
-}) {
-  return (
-    <div className={`flex flex-wrap gap-3 ${primary ? 'shrink-0' : ''}`}>
-      <a
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        className={
-          primary
-            ? 'btn-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm'
-            : 'inline-flex items-center gap-1.5 text-sm font-medium text-violet-300 hover:text-white'
-        }
-      >
-        <ExternalLink size={primary ? 16 : 14} />
-        View
-      </a>
-      <a
-        href={url}
-        target="_blank"
-        rel="noreferrer"
-        className={
-          primary
-            ? 'btn-ghost inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium'
-            : 'inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-muted)] hover:text-white'
-        }
-      >
-        <Download size={primary ? 16 : 14} />
-        {url.endsWith('.html') ? 'Print / PDF' : 'Download'}
-      </a>
-    </div>
-  )
-}
-
+/** @deprecated Use #documents section instead — avoids duplicate hero buttons */
 export function CvDownloadButton({ className = '' }: { className?: string }) {
-  if (!cvDocument?.file) return null
-  const url = documentUrl(cvDocument.file)
-
   return (
     <a
-      href={url}
-      target="_blank"
-      rel="noreferrer"
+      href="#documents"
       className={`btn-ghost inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium ${className}`}
     >
       <FileText size={16} />
-      View CV
+      CV &amp; documents
     </a>
   )
 }

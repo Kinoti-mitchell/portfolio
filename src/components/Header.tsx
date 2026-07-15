@@ -3,13 +3,11 @@ import { GitHubIcon } from './GitHubIcon'
 import { useState } from 'react'
 
 const links = [
-  { href: '#about', label: 'About' },
+  { href: '#documents', label: 'CV' },
   { href: '#experience', label: 'Experience' },
-  { href: '#documents', label: 'CV & certs' },
-  { href: '#education', label: 'Education' },
+  { href: '#skills', label: 'Toolkit' },
   { href: '#projects', label: 'Projects' },
   { href: '#request-demo', label: 'Connect' },
-  { href: '#skills', label: 'Skills' },
 ]
 
 export function Header() {
@@ -28,7 +26,7 @@ export function Header() {
           Mitchell
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {links.map((link) => (
             <a key={link.href} href={link.href} className="nav-link text-sm font-medium">
               {link.label}
@@ -47,11 +45,11 @@ export function Header() {
             <GitHubIcon size={18} />
           </a>
           <a
-            href="mailto:kinotimitchell@gmail.com"
+            href="#request-demo"
             className="btn-primary inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm"
           >
             <Sparkles size={15} />
-            Hire me
+            Connect
           </a>
         </div>
 

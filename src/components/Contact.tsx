@@ -15,12 +15,11 @@ export function Contact() {
               Let's <span className="gradient-text">connect</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-[var(--color-muted)]">
-              Open to ICT roles, software support, and customer experience
-              positions — or use the{' '}
+              Quick contact — for demos, certificates, or roles use the{' '}
               <a href="#request-demo" className="text-violet-300 underline">
-                connect form
-              </a>{' '}
-              to request a demo or discuss an opportunity.
+                connect form below
+              </a>
+              .
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-4">

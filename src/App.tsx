@@ -10,6 +10,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { OpenTo } from './components/OpenTo'
 import { Projects } from './components/Projects'
+import { RecruiterPath } from './components/RecruiterPath'
 import { Skills } from './components/Skills'
 import { WhyHireMe } from './components/WhyHireMe'
 import { DemoProvider } from './context/DemoContext'
@@ -21,6 +22,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <RecruiterPath />
         <OpenTo />
         <About />
         <WhyHireMe />
@@ -28,9 +30,9 @@ function App() {
         <Education />
         <Documents />
         <Projects />
-        <DemoRequestForm />
         <Skills />
         <Contact />
+        <DemoRequestForm />
       </main>
       <Footer />
     </DemoProvider>

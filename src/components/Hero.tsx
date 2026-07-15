@@ -7,21 +7,16 @@ import {
   profileSummary,
   TITLE,
 } from '../data/profile'
-import { ArrowDown, Play, Sparkles } from 'lucide-react'
+import { ArrowDown, Briefcase, Wrench } from 'lucide-react'
 import { GitHubIcon } from './GitHubIcon'
 import { SectionBadge } from './SectionBadge'
-import { CvDownloadButton } from './Documents'
-import { useDemoRequest } from '../context/DemoContext'
 
 export function Hero() {
-  const { requestDemo } = useDemoRequest()
-
   return (
-    <section className="relative px-6 pb-24 pt-20 md:pt-28">
+    <section className="relative px-6 pb-16 pt-20 md:pt-28">
       <div className="mx-auto max-w-6xl">
         <div className="animate-fade-up">
           <SectionBadge>
-            <Sparkles size={12} className="mr-1.5 inline" />
             {CURRENT_ROLE} · {CURRENT_COMPANY} · {EMPLOYER_LOCATION}
           </SectionBadge>
         </div>
@@ -37,39 +32,44 @@ export function Hero() {
           {TITLE}
         </p>
 
-        <p className="animate-fade-up delay-2 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)] md:text-xl">
-          {profileSummary.slice(0, 180)}…
+        <p className="animate-fade-up delay-2 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+          {profileSummary.slice(0, 200)}…
         </p>
 
-        <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-4">
+        <div className="animate-fade-up delay-3 mt-10 flex flex-wrap gap-3">
           <a
             href="#documents"
             className="btn-primary inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm"
           >
-            View CV
+            View CV &amp; documents
             <ArrowDown size={16} />
           </a>
-          <CvDownloadButton />
-          <button
-            type="button"
-            onClick={() => requestDemo('')}
-            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium"
+          <a
+            href="#skills"
+            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-medium"
           >
-            <Play size={16} fill="currentColor" />
-            Request demo
-          </button>
+            <Wrench size={16} />
+            My toolkit
+          </a>
+          <a
+            href="#experience"
+            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-medium"
+          >
+            <Briefcase size={16} />
+            Experience
+          </a>
           <a
             href="https://github.com/Kinoti-mitchell"
             target="_blank"
             rel="noreferrer"
-            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-medium"
+            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-medium"
           >
             <GitHubIcon size={16} />
             GitHub
           </a>
         </div>
 
-        <div className="animate-fade-up delay-3 mt-16 flex flex-wrap gap-3">
+        <div className="animate-fade-up delay-3 mt-12 flex flex-wrap gap-2">
           {[
             'Craft Silicon Payments',
             'County Revenue',
@@ -80,7 +80,7 @@ export function Hero() {
           ].map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-white/80"
+              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-white/80"
             >
               {tech}
             </span>
