@@ -6,7 +6,7 @@ export type DocumentItem = {
   description: string
   type: 'cv' | 'certificate' | 'other'
   access: DocumentAccess
-  /** Only for public documents — never commit private certs to public/ */
+  /** Only for public documents — never commit private files to public/ */
   file?: string
   issuer?: string
   date?: string
@@ -15,16 +15,14 @@ export type DocumentItem = {
   accent: string
 }
 
-/** Public CV — safe to share with recruiters */
 export const documents: DocumentItem[] = [
   {
     id: 'cv',
     title: 'Curriculum Vitae',
     description:
-      'Developer-focused CV — Craft Silicon, projects, education, and referees. Open in browser or print to PDF.',
-    file: 'documents/mitchell-kinoti-cv.html',
+      'Developer-focused CV — Craft Silicon, projects, education, and referees. Request print access or a PDF copy by email.',
     type: 'cv',
-    access: 'public',
+    access: 'private',
     date: 'July 2026',
     emoji: '📄',
     accent: 'from-teal-500 to-cyan-600',
@@ -46,7 +44,9 @@ export const documents: DocumentItem[] = [
 
 export const cvDocument = documents.find((d) => d.type === 'cv')
 export const publicDocuments = documents.filter((d) => d.access === 'public')
-export const privateDocuments = documents.filter((d) => d.access === 'private')
+export const privateDocuments = documents.filter(
+  (d) => d.access === 'private' && d.type !== 'cv',
+)
 export const certificates = documents.filter((d) => d.type === 'certificate')
 
 export function documentUrl(file: string): string {

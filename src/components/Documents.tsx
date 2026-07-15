@@ -1,15 +1,7 @@
-import {
-  ExternalLink,
-  FileText,
-  FolderOpen,
-  Lock,
-  Printer,
-  Shield,
-} from 'lucide-react'
+import { Download, FileText, FolderOpen, Lock, Printer, Shield } from 'lucide-react'
 import {
   certificateRequestLabel,
   cvDocument,
-  documentUrl,
   privateDocuments,
   type DocumentItem,
 } from '../data/documents'
@@ -27,14 +19,14 @@ export function Documents() {
             Documents & <span className="gradient-text">credentials</span>
           </>
         }
-        description="Open the CV in your browser, then Print → Save as PDF for ATS uploads."
+        description="Request print access or a PDF copy — nothing downloads automatically."
       />
 
       <div className="alert-info mt-6 flex items-start gap-3 p-4 text-left">
         <Shield className="mt-0.5 shrink-0 text-emerald-400" size={20} />
         <p className="text-sm text-[var(--color-muted)]">
-          Certificate scans are not posted here. Request a copy and I will send
-          it by email.
+          CV and certificate files are not posted publicly. Send a request and I
+          will share by email after I review it.
         </p>
       </div>
 
@@ -62,20 +54,20 @@ export function Documents() {
 }
 
 function CvCard({ doc }: { doc: DocumentItem }) {
-  const url = documentUrl(doc.file!)
+  const { requestCvAccess } = useDemoRequest()
 
-  function openCv() {
-    void notifyActivity('cv-view', doc.title)
-    window.open(url, '_blank', 'noopener,noreferrer')
+  function requestPrint() {
+    void notifyActivity('cv-print-request', doc.title)
+    requestCvAccess('print')
   }
 
-  function printCv() {
-    void notifyActivity('cv-print', doc.title)
-    window.open(url, '_blank', 'noopener,noreferrer')
+  function requestDownload() {
+    void notifyActivity('cv-download-request', doc.title)
+    requestCvAccess('download')
   }
 
   return (
-    <article className="card-hover surface-card overflow-hidden">
+    <article className="card-hover surface-card overflow-hidden border-amber-500/15">
       <div className={`project-accent bg-gradient-to-r ${doc.accent}`} />
       <div className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between">
         <div className="flex items-start gap-5">
@@ -83,7 +75,12 @@ function CvCard({ doc }: { doc: DocumentItem }) {
             {doc.emoji}
           </span>
           <div>
-            <h3 className="mt-1 text-2xl font-bold text-white">{doc.title}</h3>
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="mt-1 text-2xl font-bold text-white">{doc.title}</h3>
+              <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-300">
+                Request access
+              </span>
+            </div>
             <p className="mt-2 max-w-lg text-[var(--color-muted)]">
               {doc.description}
             </p>
@@ -94,22 +91,22 @@ function CvCard({ doc }: { doc: DocumentItem }) {
             )}
           </div>
         </div>
-        <div className="flex shrink-0 flex-wrap gap-3">
+        <div className="flex shrink-0 flex-col gap-3 sm:flex-row md:flex-col">
           <button
             type="button"
-            onClick={openCv}
-            className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm"
+            onClick={requestPrint}
+            className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm"
           >
-            <ExternalLink size={16} />
-            Open CV
+            <Printer size={16} />
+            Request print access
           </button>
           <button
             type="button"
-            onClick={printCv}
-            className="btn-ghost inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium"
+            onClick={requestDownload}
+            className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-medium"
           >
-            <Printer size={16} />
-            Save as PDF
+            <Download size={16} />
+            Request PDF download
           </button>
         </div>
       </div>
@@ -181,7 +178,7 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
   )
 }
 
-/** @deprecated Use #documents section instead — avoids duplicate hero buttons */
+/** @deprecated Use #documents section instead */
 export function CvDownloadButton({ className = '' }: { className?: string }) {
   return (
     <a

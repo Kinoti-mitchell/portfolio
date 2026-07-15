@@ -45,6 +45,18 @@ export function DemoRequestForm() {
       setMessage(`I would like a copy of: ${selectedProject}.`)
       return
     }
+    if (inquiryKind === 'cv-print') {
+      setMessage(
+        'I would like print access to your CV (permission to print a copy for hiring review).',
+      )
+      return
+    }
+    if (inquiryKind === 'cv-download') {
+      setMessage(
+        'I would like a PDF download of your CV for our hiring process.',
+      )
+      return
+    }
     if (inquiryKind === 'demo') {
       setMessage(`I would like a demo of ${selectedProject}.`)
     }

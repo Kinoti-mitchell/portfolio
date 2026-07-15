@@ -1,18 +1,15 @@
 import { EMAIL } from '../data/profile'
 
 export type ActivityEvent =
-  | 'cv-view'
-  | 'cv-print'
+  | 'cv-print-request'
+  | 'cv-download-request'
   | 'certificate-request'
 
 const COOLDOWN_MS = 4 * 60 * 60 * 1000 // one alert per event per browser session window
 
 /**
- * Sends a lightweight email alert via FormSubmit when someone opens your CV
- * or requests a certificate. Does NOT capture visitor identity (no name/email)
- * unless they also submit the connect form separately.
- *
- * Rate-limited in localStorage to avoid inbox spam from repeat clicks.
+ * Lightweight FormSubmit alert when someone requests CV or certificate access.
+ * Does NOT capture visitor identity unless they also submit the connect form.
  */
 export async function notifyActivity(
   event: ActivityEvent,
@@ -25,8 +22,8 @@ export async function notifyActivity(
   localStorage.setItem(storageKey, String(Date.now()))
 
   const labels: Record<ActivityEvent, string> = {
-    'cv-view': 'CV opened',
-    'cv-print': 'CV print/save clicked',
+    'cv-print-request': 'CV print access requested',
+    'cv-download-request': 'CV PDF download requested',
     'certificate-request': 'Certificate requested',
   }
 

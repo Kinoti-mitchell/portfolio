@@ -1,12 +1,13 @@
 import { createContext, useContext, useState, type ReactNode } from 'react'
 
-type InquiryKind = 'demo' | 'certificate' | 'general'
+type InquiryKind = 'demo' | 'certificate' | 'cv-print' | 'cv-download' | 'general'
 
 type InquiryContextValue = {
   selectedProject: string
   inquiryKind: InquiryKind
   requestDemo: (project: string) => void
   requestCertificate: (label: string) => void
+  requestCvAccess: (kind: 'print' | 'download') => void
 }
 
 const InquiryContext = createContext<InquiryContextValue | null>(null)
@@ -31,9 +32,23 @@ export function DemoProvider({ children }: { children: ReactNode }) {
     scrollToConnect()
   }
 
+  const requestCvAccess = (kind: 'print' | 'download') => {
+    setSelectedProject(
+      kind === 'print' ? 'CV print access' : 'CV PDF download',
+    )
+    setInquiryKind(kind === 'print' ? 'cv-print' : 'cv-download')
+    scrollToConnect()
+  }
+
   return (
     <InquiryContext.Provider
-      value={{ selectedProject, inquiryKind, requestDemo, requestCertificate }}
+      value={{
+        selectedProject,
+        inquiryKind,
+        requestDemo,
+        requestCertificate,
+        requestCvAccess,
+      }}
     >
       {children}
     </InquiryContext.Provider>

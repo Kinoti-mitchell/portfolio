@@ -67,7 +67,7 @@ export function Hero() {
                 href="#documents"
                 className="btn-ghost inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm"
               >
-                View CV
+                Request CV
                 <ArrowDown size={15} />
               </a>
             </div>
