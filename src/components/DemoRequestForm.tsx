@@ -78,7 +78,6 @@ export function DemoRequestForm() {
               Let's <span className="gradient-text">talk</span>
             </>
           }
-          description="Email or call directly — or send a short message from your mail app."
         />
 
         <div className="mt-8 flex flex-wrap gap-3">
@@ -165,14 +164,8 @@ export function DemoRequestForm() {
             }`}
           >
             <Mail size={16} />
-            Open in email app
+            Send message
           </a>
-          <p className="text-center text-xs text-[var(--color-muted)]">
-            Prefer a quicker path?{' '}
-            <a href={`mailto:${EMAIL}`} className="text-indigo-300 hover:underline">
-              Email me directly
-            </a>
-          </p>
         </form>
       </div>
     </SectionShell>

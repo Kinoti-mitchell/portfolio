@@ -211,8 +211,7 @@ body {
 }
 
 .section-bordered {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  /* kept for compatibility — no visible section rules */
 }
 
 .section-header {
@@ -272,7 +271,6 @@ body {
 }
 
 .nav-link {
-  position: relative;
   color: var(--color-muted);
   font-size: 0.875rem;
   transition: color 0.2s;
@@ -280,22 +278,6 @@ body {
 
 .nav-link:hover {
   color: white;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #818cf8;
-  border-radius: 2px;
-  transition: width 0.2s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
 }
 
 .form-input {

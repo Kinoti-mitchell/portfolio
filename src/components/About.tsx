@@ -18,7 +18,6 @@ export function About() {
             <span className="gradient-text">client impact</span>
           </>
         }
-        description="Junior developer first — customer experience from supporting live systems every day."
       />
 
       <div className="surface-card mt-10 p-7 md:p-8">

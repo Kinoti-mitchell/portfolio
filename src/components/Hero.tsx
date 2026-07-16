@@ -6,7 +6,6 @@ import {
   LOCATION,
   PROFILE_PHOTO,
   profileSummary,
-  RELOCATION,
   TITLE,
   TITLE_SUPPORT,
 } from '../data/profile'
@@ -51,7 +50,7 @@ export function Hero() {
             </p>
 
             <p className="animate-fade-up delay-2 mt-3 text-sm text-gray-400">
-              {LOCATION} · {RELOCATION}
+              {LOCATION}
             </p>
 
             <div className="animate-fade-up delay-3 mt-7 flex flex-wrap gap-2.5">

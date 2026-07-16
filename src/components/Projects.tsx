@@ -15,7 +15,6 @@ export function Projects() {
             My <span className="gradient-text">work</span>
           </>
         }
-        description="Walkthrough demos available on request."
       />
 
       <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -69,7 +68,7 @@ function ProjectCard({
           ))}
         </div>
 
-        <div className="mt-5 border-t border-white/10 pt-4">
+        <div className="mt-5">
           <button
             type="button"
             onClick={onRequestDemo}

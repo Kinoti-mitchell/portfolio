@@ -21,7 +21,7 @@ const groups = [
 
 export function Skills() {
   return (
-    <SectionShell id="skills" bordered>
+    <SectionShell id="skills">
       <SectionHeader
         badge="Tech stack"
         title={
@@ -29,7 +29,6 @@ export function Skills() {
             Languages & <span className="gradient-text">tools</span>
           </>
         }
-        description="What I use to build and support software."
       />
 
       <div className="mt-10">

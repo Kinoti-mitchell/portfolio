@@ -3,7 +3,7 @@ import { SectionHeader, SectionShell } from './SectionShell'
 
 export function Experience() {
   return (
-    <SectionShell id="experience" bordered alt>
+    <SectionShell id="experience" alt>
       <SectionHeader
         badge="Experience"
         title={
@@ -11,7 +11,6 @@ export function Experience() {
             Recent <span className="gradient-text">roles</span>
           </>
         }
-        description="Focus on Craft Silicon and the path into software — earlier roles are on the CV."
       />
 
       <div className="relative mt-10 space-y-5 border-l border-white/10 pl-6 md:pl-8">

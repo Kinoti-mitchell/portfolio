@@ -1,4 +1,4 @@
-import { FileText, FolderOpen, Lock, Shield } from 'lucide-react'
+import { FileText, FolderOpen, Lock } from 'lucide-react'
 import {
   certificateRequestLabel,
   cvDocument,
@@ -11,7 +11,7 @@ import { SectionHeader, SectionShell } from './SectionShell'
 
 export function Documents() {
   return (
-    <SectionShell id="documents" bordered alt>
+    <SectionShell id="documents" alt>
       <SectionHeader
         badge="CV"
         title={
@@ -19,16 +19,7 @@ export function Documents() {
             Documents & <span className="gradient-text">credentials</span>
           </>
         }
-        description="Request a CV copy by email — nothing downloads automatically."
       />
-
-      <div className="alert-info mt-6 flex items-start gap-3 p-4 text-left">
-        <Shield className="mt-0.5 shrink-0 text-emerald-400" size={20} />
-        <p className="text-sm text-[var(--color-muted)]">
-          CV and certificate files are not posted publicly. Send a request and I
-          will share by email after I review it.
-        </p>
-      </div>
 
       {cvDocument && (
         <div className="mt-10">
@@ -70,18 +61,10 @@ function CvCard({ doc }: { doc: DocumentItem }) {
             {doc.emoji}
           </span>
           <div>
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="mt-1 text-2xl font-bold text-white">{doc.title}</h3>
-              <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-300">
-                Request access
-              </span>
-            </div>
-            <p className="mt-2 max-w-lg text-[var(--color-muted)]">
-              {doc.description}
-            </p>
+            <h3 className="mt-1 text-2xl font-bold text-white">{doc.title}</h3>
             {doc.date && (
               <p className="mt-2 font-mono text-xs text-indigo-300/80">
-                Updated {doc.date}
+                {doc.date}
               </p>
             )}
           </div>
@@ -131,8 +114,6 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
           </span>
         </div>
 
-        <p className="mt-3 text-sm text-[var(--color-muted)]">{doc.description}</p>
-
         <dl className="mt-4 grid grid-cols-2 gap-2 text-xs">
           {doc.date && (
             <div className="rounded-lg bg-white/5 px-3 py-2">
@@ -148,7 +129,7 @@ function PrivateDocumentCard({ doc }: { doc: DocumentItem }) {
           )}
         </dl>
 
-        <div className="mt-5 border-t border-white/10 pt-4">
+        <div className="mt-5">
           <button
             type="button"
             onClick={handleRequest}

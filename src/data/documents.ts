@@ -3,7 +3,6 @@ export type DocumentAccess = 'public' | 'private'
 export type DocumentItem = {
   id: string
   title: string
-  description: string
   type: 'cv' | 'certificate' | 'other'
   access: DocumentAccess
   /** Only for public documents — never commit private files to public/ */
@@ -19,8 +18,6 @@ export const documents: DocumentItem[] = [
   {
     id: 'cv',
     title: 'Curriculum Vitae',
-    description:
-      'Developer-focused CV — Craft Silicon, projects, education, and referees. Request a PDF copy by email.',
     type: 'cv',
     access: 'private',
     date: 'July 2026',
@@ -30,8 +27,6 @@ export const documents: DocumentItem[] = [
   {
     id: 'diploma-ict',
     title: 'Diploma in Information Communication Technology',
-    description:
-      'KNEC-accredited diploma completed at Meru National Polytechnic. Overall result: Credit.',
     type: 'certificate',
     access: 'private',
     issuer: 'Kenya National Examinations Council (KNEC)',
